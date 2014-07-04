@@ -1,0 +1,28 @@
+{
+    "Name": "亞太電信Wi-Fi",
+    "SSID": ["APTG Wi-Fi"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "843b96e8448fc0d9ab91a9345e1a2c44",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://wifi.aptg.com.tw/awifi/index",
+    		   		"JS":"location.href = $(\"a[id='j_id3:j_id5']\").attr(\"href\");"
+    		   },{
+    		   		"Page": "http://wifi.aptg.com.tw/awifi/login",
+    		   		"JS":"$(\"input[name='j_id2:j_id4']\").val(\"%Username%\");$(\"input[name='j_id2:password']\").val(\"%Password%\");$(\"input[name='j_id2:j_id11']\").trigger('click');"
+    		   }]
+    }
+}
