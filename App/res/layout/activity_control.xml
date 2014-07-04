@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/voidify_white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_header_height"
+        android:background="@drawable/header_background"
+        android:gravity="center_vertical|center_horizontal" >
+
+        <TextView
+            android:id="@+id/activity_control_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/control_title"
+            android:textColor="@color/voidify_green_normal"
+            android:textSize="@dimen/font_size_level_2" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/activity_control_listview"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_weight="1"
+        android:divider="@color/voidify_gray_little"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/voidify_listitem_gray" >
+    </ListView>
+
+    <Button
+        android:id="@+id/activity_control_btn_connect_add"
+        style="@style/Voidify_Button_FullSize"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:text="@string/control_button_connect_add" />
+
+</LinearLayout>

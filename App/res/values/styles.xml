@@ -1,0 +1,63 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowActionBar">false</item>
+    	<item name="android:windowNoTitle">true</item>
+    	<item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    <style name="AppDialogTheme" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowActionBar">false</item>
+    	<item name="android:windowNoTitle">true</item>
+    </style>
+    
+    <style name="Voidify_Button_FullSize" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/voidify_white</item>
+        <item name="android:textSize">@dimen/font_size_level_3</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@drawable/voidify_button_green</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    
+    <style name="Voidify_Button_FullSize_Gray" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/voidify_gray_normal</item>
+        <item name="android:textSize">@dimen/font_size_level_3</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@drawable/voidify_button_gray</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+    
+    <style name="Voidify_EditText_Normal" parent="@android:style/Widget.EditText">            
+    	<item name="android:background">@drawable/voidify_edittext_gray</item>
+    	<item name="android:padding">@dimen/padding_level_5</item>       
+    	<item name="android:textColor">@color/voidify_gray_normal</item> 
+    	<item name="android:textSize">@dimen/font_size_level_3</item> 
+    	<item name="android:singleLine">true</item> 
+    </style>
+    
+    <style name="Voidify_SpinnerDialog_Normal" parent="@android:style/Widget.Button">            
+    	<item name="android:background">@drawable/voidify_spinner_gray</item>
+    	<item name="android:padding">@dimen/padding_level_5</item>       
+    	<item name="android:textColor">@color/voidify_gray_normal</item> 
+    	<item name="android:textSize">@dimen/font_size_level_3</item>  
+		<item name="android:gravity">left|center_vertical</item>  
+    </style>
+
+</resources>

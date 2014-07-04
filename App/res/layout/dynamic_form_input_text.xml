@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dynamic_form_input_text_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding_level_5"
+    android:paddingLeft="@dimen/padding_level_3"
+    android:paddingRight="@dimen/padding_level_3"
+    android:paddingTop="@dimen/padding_level_4" >
+
+    <TextView
+        android:id="@+id/dynamic_form_input_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_level_3"
+        android:text="Title"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/voidify_green_normal"
+        android:textSize="@dimen/font_size_level_2" />
+
+    <EditText
+        android:id="@+id/dynamic_form_input_text_value"
+        style="@style/Voidify_EditText_Normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </EditText>
+
+</LinearLayout>

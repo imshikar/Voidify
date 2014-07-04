@@ -1,0 +1,45 @@
+{
+    "Name": "中華電信Wi-Fi",
+    "SSID": ["CHT Wi-Fi(HiNet)"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "deea6ef757965165b01d2c8a19eacb5e",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "LoginType",
+        "Type": "Spinner",
+        "Title": "上網身分",
+        "Option": [{
+            "Title": "中華行動門號",
+            "Value": "1"
+        }, {
+            "Title": "HiNet",
+            "Value": "2"
+        }, {
+            "Title": "預付卡",
+            "Value": "3"
+        }, {
+            "Title": "CHT會員",
+            "Value": "5"
+        }]
+    },{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username", "(", "LoginType_Title", ")"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://authweb.hinet.net/auth/auth_portal.php",
+    		   		"JS":"location.href=$(\"div.enterBtn a\").attr('href');"
+    		   }, {
+    		   		"Page": "https://authweb.hinet.net/auth/auth_login/login1",
+    		   		"JS": "seltype%LoginType%();$(\"input[name='cht_user']\").each(function(index){if(index+1 == %LoginType%){$(this).val(\"%Username%\");}});$(\"input[name='passwd']\").each(function(index){if(index+1 == %LoginType%){$(this).val(\"%Password%\");}});$('#submit').trigger('click');"
+    		   }]
+    }
+}

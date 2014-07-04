@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/voidify_white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_header_height"
+        android:background="@drawable/header_background"
+        android:gravity="center_vertical|center_horizontal" >
+
+        <TextView
+            android:id="@+id/activity_connect_config_text_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connect_config_title_mode_add"
+            android:textColor="@color/voidify_green_normal"
+            android:textSize="@dimen/font_size_level_2" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="332dp"
+        android:layout_weight="1" >
+
+        <shikar.in.voidify.utils.ScrollViewExt
+            android:id="@+id/activity_connect_config_scroll_main"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:id="@+id/activity_connect_config_linearlayout_form"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/connect_config_info_height" >
+
+            </LinearLayout>
+        </shikar.in.voidify.utils.ScrollViewExt>
+
+        <RelativeLayout
+            android:id="@+id/activity_connect_config_relativelayout_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/connect_config_info_height"
+            android:background="@color/voidify_blue_dark" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/activity_connect_config_text_wifi_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="國立台南大學校園網路"
+                    android:textColor="@color/voidify_white"
+                    android:textSize="@dimen/font_size_level_1_5" />
+
+                <TextView
+                    android:id="@+id/activity_connect_config_text_wifi_ssid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_level_4"
+                    android:text="NUTNWLAN、NUTN-Wifi"
+                    android:textColor="@color/voidify_green_normal"
+                    android:textSize="@dimen/font_size_level_3" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/activity_connect_config_btn_cancel"
+            style="@style/Voidify_Button_FullSize"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/button_bottom_full_height"
+            android:layout_weight="1"
+            android:text="@string/connect_config_button_cancel" />
+
+        <Button
+            android:id="@+id/activity_connect_config_btn_save"
+            style="@style/Voidify_Button_FullSize"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/button_bottom_full_height"
+            android:layout_weight="1"
+            android:text="@string/connect_config_button_save_mode_add" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    tools:context="${packageName}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/activity_splash_text_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/padding_level_2"
+        android:text="TextView"
+        android:textColor="@color/voidify_white"
+        android:textSize="@dimen/font_size_level_3" />
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+[{
+    "Type": 1,
+    "Title": "校園網路",
+    "List": [{
+        "UUID": "59f98e64c3b9f136049237d2b597959a",
+        "Name": "國立臺南大學校園網路",
+        "Version": 1
+    }]
+},
+{
+    "Type": 2,
+    "Title": "公共網路",
+    "List": [{
+        "UUID": "fb056770445ccbd5f6b4c7b736c8b86e",
+        "Name": "iTaiwan無線上網",
+        "Version": 1
+    },
+    {
+        "UUID": "78536384ff314398ac46fd63761786c0",
+        "Name": "臺南市政府無線網路",
+        "Version": 1
+    },
+    {
+        "UUID": "97c7370c7d1c6bb0102e036407a9c682",
+        "Name": "臺南市教育局無線網路",
+        "Version": 1
+    }]
+},
+{
+    "Type": 3,
+    "Title": "商業網路",
+    "List": [{
+        "UUID": "deea6ef757965165b01d2c8a19eacb5e",
+        "Name": "中華電信Wi-Fi",
+        "Version": 1
+    },{
+        "UUID": "843b96e8448fc0d9ab91a9345e1a2c44",
+        "Name": "亞太電信Wi-Fi",
+        "Version": 1
+    },{
+        "UUID": "0eee884c97a84b0d124d197767bfc179",
+        "Name": "WIFLY無線上網",
+        "Version": 1
+    },{
+        "UUID": "b32dc8dc964278cdd54e7f2b73d2db27",
+        "Name": "7-WiFi無線上網",
+        "Version": 1
+    }]
+}
+]

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voidify</string>
+    <string name="splash_start_service">正在啟動服務</string>
+    <string name="main_info_connected">目前狀態</string>
+    <string name="main_button_admin">管理連線</string>
+    <string name="main_not_connected_wifi_ssid">Not Connected</string>
+    <string name="main_not_connected_wifi_title">未連接無線網路</string>
+    <string name="main_undefined_wifi_title">未知的無線網路</string>
+    <string name="main_wifi_status_supported">此AP支援自動登入</string>
+    <string name="main_wifi_status_haveconfig">此AP已設定自動登入</string>
+    <string name="control_title">管理連線</string>
+    <string name="control_button_connect_add">新增連線</string>
+    <string name="control_dialog_action_edit">修改</string>
+    <string name="control_dialog_action_delete">刪除</string>
+    <string name="control_alert_delete_title">刪除連線資訊</string>
+    <string name="control_alert_delete_message">你確定要刪除「[ConfigTitle]」的連線資訊嗎?</string>
+    <string name="control_alert_delete_button_ok">刪除</string>
+    <string name="connect_type_auto">自動</string>
+    <string name="connect_type_tips">提示</string>
+    <string name="connect_type_disable">禁止</string>
+    <string name="connect_group_title">新增連線</string>
+    <string name="connect_group_button_cancel">取消</string>
+    <string name="connect_wifi_title">新增連線</string>
+    <string name="connect_wifi_button_cancel">取消</string>
+    <string name="connect_config_alert_configrepeat_title">已建立</string>
+    <string name="connect_config_alert_configrepeat_message">您已經建立過「[ConnectName]」的連線資訊, 是否要進行修改?</string>
+    <string name="connect_config_alert_configrepeat_button_ok">修改</string>
+    <string name="connect_config_title_mode_add">新增連線</string>
+    <string name="connect_config_title_mode_edit">修改連線</string>
+    <string name="connect_config_button_save_mode_add">新增</string>
+    <string name="connect_config_button_save_mode_edit">修改</string>
+    <string name="connect_config_button_cancel">取消</string>
+    <string name="connect_config_alert_checkforminput_title">提醒</string>
+    <string name="connect_config_alert_checkforminput_message">[InputTitle]請勿空白!</string>
+    <string name="connect_config_alert_saveconfig_title">連線資訊</string>
+    <string name="connect_config_alert_saveconfig_message_add">新增連線資訊成功!</string>
+    <string name="connect_config_alert_saveconfig_message_edit">修改連線資訊成功!</string>
+    <string name="dialog_spinner_button_cancel">取消</string>
+    <string name="dialog_alert_button_ok">確認</string>
+    <string name="dialog_alert_button_cancel">取消</string>
+    <string name="notification_ticker_auto">已連接[ConnectName]，開始自動登入</string>
+    <string name="notification_content_auto">開始登入[ConnectName]</string>
+    <string name="notification_ticker_tips">已連接[ConnectName]，請確認是否進行登入</string>
+    <string name="notification_content_tips">按一下開始登入[ConnectName]</string>
+    <string name="notification_ticker_disable">已連接[ConnectName]，禁止自動登入</string>
+    <string name="notification_content_disable">已禁止登入[ConnectName]</string>
+    <string name="notification_ticker_connect_do">正在登入[ConnectName]...</string>
+    <string name="notification_content_connect_do">正在登入[ConnectName]...</string>
+    <string name="notification_ticker_connect_success">成功登入，可以開始使用[ConnectName]</string>
+    <string name="notification_content_connect_success">成功登入[ConnectName]</string>
+    <string name="notification_ticker_connect_failure">登入失敗，請檢查[ConnectName]的連線資訊</string>
+    <string name="notification_content_connect_failure">登入失敗，請檢查[ConnectName]的連線資訊</string>
+    <string name="notification_ticker_connect_timeout">登入逾時，請確認是否已經連接[ConnectName]及網路是否正常!</string>
+    <string name="notification_content_connect_timeout">登入逾時，按一下重新登入[ConnectName]</string>
+
+</resources>

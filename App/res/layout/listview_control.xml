@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dynamic_form_input_password_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/listview_horizontal_padding"
+    android:paddingLeft="@dimen/listview_vertical_padding"
+    android:paddingRight="@dimen/listview_vertical_padding"
+    android:paddingTop="@dimen/listview_horizontal_padding" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_level_3" >
+
+        <TextView
+            android:id="@+id/activity_connect_group_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WiFi Title"
+            android:textColor="@color/voidify_gray_dark"
+            android:textSize="@dimen/font_size_level_3" />
+
+        <TextView
+            android:id="@+id/listview_control_text_connect_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/connect_type_auto"
+            android:textColor="@color/voidify_green_normal"
+            android:textSize="@dimen/font_size_level_4" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/listview_conrol_text_wifi_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WiFi Account"
+        android:textColor="@color/voidify_gray_light"
+        android:textSize="@dimen/font_size_level_5" />
+
+</LinearLayout>

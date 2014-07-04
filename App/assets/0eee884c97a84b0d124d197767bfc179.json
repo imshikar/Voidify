@@ -1,0 +1,99 @@
+{
+    "Name": "WIFLY無線上網",
+    "SSID": ["WIFLY"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "0eee884c97a84b0d124d197767bfc179",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }, {
+        "ID": "UserRole",
+        "Type": "Spinner",
+        "Title": "身分",
+        "Option": [{
+            "Title": "WIFLY上網帳號",
+            "Value": "1"
+        }, {
+            "Title": "7-Mobile用戶",
+            "Value": "65"
+        }, {
+            "Title": "遠傳付費用戶",
+            "Value": "10"
+        }, {
+            "Title": "遠傳企業用戶",
+            "Value": "37"
+        }, {
+            "Title": "遠傳行動用戶",
+            "Value": "44"
+        }, {
+            "Title": "遠傳固網 ADSL/光纖用戶",
+            "Value": "9"
+        }, {
+            "Title": "Boingo用戶",
+            "Value": "12"
+        }, {
+            "Title": "亞太電信用戶",
+            "Value": "13"
+        }, {
+            "Title": "工研院用戶",
+            "Value": "14"
+        }, {
+            "Title": "iPass漫遊用戶",
+            "Value": "16"
+        }, {
+            "Title": "漫遊認證交換中心",
+            "Value": "17"
+        }, {
+            "Title": "Trustive用戶",
+            "Value": "20"
+        }, {
+            "Title": "中國電信",
+            "Value": "35"
+        }, {
+            "Title": "澳門電訊用戶",
+            "Value": "46"
+        }, {
+            "Title": "True用戶",
+            "Value": "54"
+        }, {
+            "Title": "WirelessGate 用戶",
+            "Value": "55"
+        }, {
+            "Title": "KT 用戶",
+            "Value": "56"
+        }, {
+            "Title": "So-net用戶",
+            "Value": "6"
+        }, {
+            "Title": "中國移動香港用戶",
+            "Value": "62"
+        }, {
+            "Title": "Orange France",
+            "Value": "63"
+        }, {
+            "Title": "台灣電訊用戶",
+            "Value": "7"
+        }, {
+            "Title": "億聯科技用戶",
+            "Value": "8"
+        }, {
+            "Title": "富邦人壽教育訓練中心",
+            "Value": "71"
+        }]
+    }],
+    "Account" : ["Username", "(", "UserRole_Title", ")"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://www.wifly.com.tw/mWifly6/login.aspx",
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"select[name='UserRole'] option[value='%UserRole%']\").prop(\"selected\", \"selected\");"
+    		   }]
+    }
+}

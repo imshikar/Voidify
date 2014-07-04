@@ -1,0 +1,15 @@
+[{
+        "ID": "ConnectType",
+        "Type": "Spinner",
+        "Title": "連線方式",
+        "Option": [{
+            "Title": "自動",
+            "Value": "0"
+        }, {
+            "Title": "提示",
+            "Value": "1"
+        }, {
+            "Title": "禁止",
+            "Value": "2"
+        }]
+    }]

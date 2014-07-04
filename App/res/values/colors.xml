@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="voidify_white">#FFFFFF</color>
+    
+    <color name="voidify_gray_dark">#363636</color>
+    <color name="voidify_gray_normal">#5F5F5F</color>
+    <color name="voidify_gray_small">#AAAAAA</color>
+    <color name="voidify_gray_little">#DDDDDD</color>
+    <color name="voidify_gray_light">#9D9D9D</color>
+    <color name="voidify_gray_very_ligiht">#F2F2F2</color>
+    
+    <color name="voidify_green_normal">#00C35F</color>
+    <color name="voidify_green_dark">#06AA56</color>
+    <color name="voidify_green_light">#10E377</color>
+    
+    <color name="voidify_blue_dark">#EE30353C</color>
+</resources>

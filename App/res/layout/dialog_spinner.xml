@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/voidify_white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/voidify_green_normal"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/padding_level_4" >
+
+        <TextView
+            android:id="@+id/dialog_spinner_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dialog Title"
+            android:textColor="@color/voidify_white"
+            android:textSize="@dimen/font_size_level_1_5" />
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/dialog_spinner_listview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/voidify_white"
+        android:divider="@color/voidify_gray_little"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/voidify_listitem_gray" >
+
+    </ListView>
+    
+    <Button
+        android:id="@+id/dialog_spinner_btn_cancel"
+        style="@style/Voidify_Button_FullSize_Gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_bottom_full_height"
+        android:layout_weight="0"
+        android:text="@string/dialog_spinner_button_cancel" />
+
+</LinearLayout>
