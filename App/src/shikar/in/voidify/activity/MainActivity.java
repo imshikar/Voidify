@@ -143,7 +143,9 @@ public class MainActivity extends Activity {
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		Cursor cursor = db.rawQuery("SELECT ap._ConnectID FROM ap WHERE ap._SSID = ? LIMIT 1", new String[]{ssid});
+		String whereSQL = Common.getAPWhereSQL(ssid, "ap._SSID");
+		
+		Cursor cursor = db.rawQuery("SELECT ap._ConnectID FROM ap WHERE "+whereSQL+" LIMIT 1", null);
 		
 		int rowsNum = cursor.getCount();
 		
@@ -169,7 +171,9 @@ public class MainActivity extends Activity {
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		Cursor cursor = db.rawQuery("SELECT support._Name FROM support WHERE support._SSID = ? LIMIT 1", new String[]{ssid});
+		String whereSQL = Common.getAPWhereSQL(ssid, "support._SSID");
+		
+		Cursor cursor = db.rawQuery("SELECT support._Name FROM support WHERE "+whereSQL+" LIMIT 1", null);
 		
 		int rowsNum = cursor.getCount();
 		

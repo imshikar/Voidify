@@ -1,0 +1,25 @@
+{
+    "Name": "興國管理學院校園網路",
+    "SSID": ["HKU-TANetRoaming"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "c1dc7f8bc8d6b8dad68a62b8ab810a2b",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://securelogin.arubanetworks.com/upload/custom/hku-captiveportal-profile/index.html",
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

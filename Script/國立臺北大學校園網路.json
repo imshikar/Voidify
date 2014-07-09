@@ -1,0 +1,25 @@
+{
+    "Name": "國立臺北大學校園網路",
+    "SSID": ["NTPU"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "6403afd5ede180a0da69a8582f2bfcf4",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://1.1.1.1/login.html",
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Submit']\").trigger('click');"
+    		   }]
+    }
+}

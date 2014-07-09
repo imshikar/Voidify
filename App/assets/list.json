@@ -1,50 +1,96 @@
-[{
+[
+  {
     "Type": 1,
     "Title": "校園網路",
-    "List": [{
+    "List": [
+      {
+        "UUID": "35608a37dc0ee066ab8b455b284421a4",
+        "Name": "南臺科技大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "47478bea9cf2f2705d320574b99e86ff",
+        "Name": "國立金門大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "6403afd5ede180a0da69a8582f2bfcf4",
+        "Name": "國立臺北大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "59f98e64c3b9f136049237d2b597959a",
         "Name": "國立臺南大學校園網路",
         "Version": 1
-    }]
-},
-{
+      },
+      {
+        "UUID": "4e54e8f133ba07839fba9707f81bb53e",
+        "Name": "康寧大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "c1dc7f8bc8d6b8dad68a62b8ab810a2b",
+        "Name": "興國管理學院校園網路",
+        "Version": 1
+      }
+    ]
+  },
+  {
     "Type": 2,
     "Title": "公共網路",
-    "List": [{
+    "List": [
+      {
         "UUID": "fb056770445ccbd5f6b4c7b736c8b86e",
         "Name": "iTaiwan無線上網",
         "Version": 1
-    },
-    {
+      },
+      {
         "UUID": "78536384ff314398ac46fd63761786c0",
         "Name": "臺南市政府無線網路",
         "Version": 1
-    },
-    {
+      },
+      {
         "UUID": "97c7370c7d1c6bb0102e036407a9c682",
         "Name": "臺南市教育局無線網路",
         "Version": 1
-    }]
-},
-{
+      }
+    ]
+  },
+  {
     "Type": 3,
     "Title": "商業網路",
-    "List": [{
-        "UUID": "deea6ef757965165b01d2c8a19eacb5e",
-        "Name": "中華電信Wi-Fi",
-        "Version": 1
-    },{
-        "UUID": "843b96e8448fc0d9ab91a9345e1a2c44",
-        "Name": "亞太電信Wi-Fi",
-        "Version": 1
-    },{
-        "UUID": "0eee884c97a84b0d124d197767bfc179",
-        "Name": "WIFLY無線上網",
-        "Version": 1
-    },{
+    "List": [
+      {
         "UUID": "b32dc8dc964278cdd54e7f2b73d2db27",
         "Name": "7-WiFi無線上網",
         "Version": 1
-    }]
-}
+      },
+      {
+        "UUID": "0eee884c97a84b0d124d197767bfc179",
+        "Name": "WIFLY無線上網",
+        "Version": 1
+      },
+      {
+        "UUID": "deea6ef757965165b01d2c8a19eacb5e",
+        "Name": "中華電信Wi-Fi",
+        "Version": 1
+      },
+      {
+        "UUID": "843b96e8448fc0d9ab91a9345e1a2c44",
+        "Name": "亞太電信Wi-Fi",
+        "Version": 1
+      }
+    ]
+  },
+  {
+    "Type": 4,
+    "Title": "公司網路",
+    "List": [
+      {
+        "UUID": "a047cafe4486ec91f317c19aad440a60",
+        "Name": "彰基院內員工無線網路服務",
+        "Version": 1
+      }
+    ]
+  }
 ]

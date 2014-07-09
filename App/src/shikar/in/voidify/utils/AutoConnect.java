@@ -156,8 +156,12 @@ public class AutoConnect
 		DBHelper dbHelper = new DBHelper(_context);
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+		String whereSQL = Common.getAPWhereSQL(_ssid, "ap._SSID");
 		
-		Cursor cursor = db.rawQuery("SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ap._SSID = ? LIMIT 1", new String[]{_ssid});
+		Cursor cursor = db.rawQuery("SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ("+whereSQL+") LIMIT 1", null);
+		
+		Log.d(DEBUG_TAG, "SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ("+whereSQL+") LIMIT 1");
 		
 		int rowsNum = cursor.getCount();
  
@@ -171,6 +175,8 @@ public class AutoConnect
 				JSONObject jsonObjectScript = new JSONObject(cursor.getString(2));
 				_scriptCheckType = jsonObjectScript.getString("CheckType");
 				_jsonArrayScriptList = jsonObjectScript.getJSONArray("List");
+				
+				Log.d(DEBUG_TAG, "Json:" + _jsonArrayScriptList.toString());
 			} 
 			catch (JSONException e) 
 			{

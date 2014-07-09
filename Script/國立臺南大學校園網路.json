@@ -32,7 +32,7 @@
     "Script": {
     		   "CheckType" : "Index",
     		   "List":[{
-    		   		"JS":"$(\"select[name='fqdn'] option[value='%LoginType%']\").prop(\"selected\", \"selected\");changefqdn();$(\"#account\").val(\"%Username%\");$(\"#pass\").val(\"%Password%\");$(\"input[name='submit']\").trigger('click');"
+    		   		"JS":"$(\"select[name='fqdn'] option[value='%LoginType_Value%']\").prop(\"selected\", \"selected\");changefqdn();$(\"#account\").val(\"%Username%\");$(\"#pass\").val(\"%Password%\");$(\"input[name='submit']\").trigger('click');"
     		   }]
     }
 }

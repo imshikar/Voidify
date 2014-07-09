@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
 	private final static String DEBUG_TAG = "Voidify_Utils_DBHelper";
 	
-	private final static int _DBVersion = 2;
+	private final static int _DBVersion = 3;
 	private final static String _DBName = "Voidify.db"; 
 	
 	private Context _context;
@@ -130,10 +130,20 @@ public class DBHelper extends SQLiteOpenHelper
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) 
 	{
-		db.execSQL("DROP TABLE IF EXISTS connect");
-		db.execSQL("DROP TABLE IF EXISTS ap");
+		//db.execSQL("DROP TABLE IF EXISTS connect");
+		//db.execSQL("DROP TABLE IF EXISTS ap");
 		db.execSQL("DROP TABLE IF EXISTS support");
-		onCreate(db);
+		//onCreate(db);
+		
+		final String SQL_Support = "CREATE TABLE IF NOT EXISTS support ( " +
+				   "_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				   "_UUID VARCHAR(40)," +
+				   "_SSID VARCHAR(255), " +
+				   "_Name VARCHAR(255) " +
+				   ");";
+		db.execSQL(SQL_Support);	
+		
+		createAPList(db);
 		
 	}
 	

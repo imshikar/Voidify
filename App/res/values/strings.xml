@@ -53,6 +53,30 @@
     <string name="notification_ticker_connect_failure">登入失敗，請檢查[ConnectName]的連線資訊</string>
     <string name="notification_content_connect_failure">登入失敗，請檢查[ConnectName]的連線資訊</string>
     <string name="notification_ticker_connect_timeout">登入逾時，請確認是否已經連接[ConnectName]及網路是否正常!</string>
-    <string name="notification_content_connect_timeout">登入逾時，按一下重新登入[ConnectName]</string>
-
+    <string name="notification_content_connect_timeout">登入逾時，請重新連結[ConnectName]</string>
+	<string name="guide_title">使用說明</string>
+	<string name="guide_button_start_next">下一頁</string>
+	<string name="guide_button_start_finish">開始使用</string>
+	<string name="guide_view_title_1">Hello, Voidify</string>
+	<string name="guide_view_content_1">這是當你打開Voidify，你最先看到的畫面</string>
+	<string name="guide_view_title_2">查看目前連線資訊</string>
+	<string name="guide_view_content_2">你可以在畫面中間，查看目前所連結上的無線網路資訊，與是否支援自動登入</string>
+	<string name="guide_view_title_3">如何管理連線</string>
+	<string name="guide_view_content_3">你可以在畫面下方看見管理連線的按鈕，按一下即可進入管理連線的頁面</string>
+	<string name="guide_view_title_4">如何管理連線</string>
+	<string name="guide_view_content_4">你可以在管理連線中，看見建立過的自動連線設定</string>
+	<string name="guide_view_title_5">如何修改或刪除連線</string>
+	<string name="guide_view_content_5">你可以按一下連線資訊，要修改的連線即可進入修改畫面。或者長按連線資訊，來打開動作選項</string>
+	<string name="guide_view_title_6">如何新增一個連線</string>
+	<string name="guide_view_content_6">在管理連線的頁面中，點選新增連線按鈕</string>
+	<string name="guide_view_title_7">如何新增一個連線</string>
+	<string name="guide_view_content_7">選擇一個要加入自動連線的網路分類</string>
+	<string name="guide_view_title_8">如何新增一個連線</string>
+	<string name="guide_view_content_8">選擇一個要加入自動連線的網路名稱</string>
+	<string name="guide_view_title_9">如何新增一個連線</string>
+	<string name="guide_view_content_9">填寫相關資訊，設定連線方式(自動、提示及禁止)後，按下新增按鈕即可</string>
+	<string name="guide_view_title_10">怎麼不會自動登入</string>
+	<string name="guide_view_content_10">由於自動連線動作只有在連結上支援的AP，且尚未連結到網際網路的時候，才會有動作。如果已經連接該AP，請重新斷開再連接該AP即可</string>
+	<string name="guide_view_title_11">自動登入提示</string>
+	<string name="guide_view_content_11">當Voidify開始執行登入時，會提示開始登入以及登入的結果</string>
 </resources>

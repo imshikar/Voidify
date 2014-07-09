@@ -63,6 +63,13 @@ public class AutoConnectService extends Service
 	}
 	
 	@Override
+	public void onCreate() 
+	{
+		super.onCreate();
+		
+	}
+	
+	@Override
 	public void onDestroy() 
 	{
 		unregisterAutoConnectReciver();
@@ -177,6 +184,7 @@ public class AutoConnectService extends Service
 		try
 		{
 			_windowManager.removeView(_linearLayoutView);
+	    	stopService(new Intent( AutoConnectService.this, AutoConnectService.class));
 		}
 		catch (Exception e)
 		{
@@ -321,10 +329,9 @@ public class AutoConnectService extends Service
 					String notifyContent = getResources().getString(R.string.notification_ticker_connect_timeout);	
 					notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
 					
-					Intent broadcastIntent = new Intent(AutoConnectService.BROADCAST_AUTO_CONNECT);
-					broadcastIntent.putExtra("connect_ssid", _autoConnect.getSSID());
+					Intent contentIntent = new Intent(); 
 					
-					_notification = new NotificationBox(AutoConnectService.this, broadcastIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
+					_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 					_notification.notifyBox();
 					
 					destoryView();

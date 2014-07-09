@@ -17,7 +17,7 @@
         android:src="@drawable/logo_header" />
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/activity_guide_linearlayout_pager_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

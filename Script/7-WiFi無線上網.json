@@ -30,7 +30,7 @@
     		   "CheckType" : "Page",
     		   "List":[{
     		   		"Page": "https://www.7wifi.com.tw/phone/index2.aspx",
-    		   		"JS":"$(\"select[name='userrole'] option[value='%LoginType%']\").prop(\"selected\", \"selected\");$(\"input[name='wiflyacct']\").val(\"%Username%\");$(\"input[name='wiflypwd']\").val(\"%Password%\");$(\"input[name='imgbtn_login']\").trigger('click');"
+    		   		"JS":"$(\"select[name='userrole'] option[value='%LoginType_Value%']\").prop(\"selected\", \"selected\");$(\"input[name='wiflyacct']\").val(\"%Username%\");$(\"input[name='wiflypwd']\").val(\"%Password%\");$(\"input[name='imgbtn_login']\").trigger('click');"
     		   }]
     }
 }

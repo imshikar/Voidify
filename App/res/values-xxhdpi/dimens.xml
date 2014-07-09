@@ -9,26 +9,30 @@
     
     <dimen name="activity_header_height">45dp</dimen>
     
-    <dimen name="font_size_level_1">26dp</dimen>
-    <dimen name="font_size_level_1_5">20dp</dimen>
-    <dimen name="font_size_level_2">18dp</dimen>
-    <dimen name="font_size_level_3">16dp</dimen>
-    <dimen name="font_size_level_4">14dp</dimen>
-	<dimen name="font_size_level_5">10dp</dimen>
+    <dimen name="font_size_level_1">32dp</dimen>
+    <dimen name="font_size_level_1_5">22dp</dimen>
+    <dimen name="font_size_level_2">20dp</dimen>
+    <dimen name="font_size_level_3">18dp</dimen>
+    <dimen name="font_size_level_4">16dp</dimen>
+	<dimen name="font_size_level_5">14dp</dimen>
     
-    <dimen name="margin_level_1">15dp</dimen>
-    <dimen name="margin_level_2">13dp</dimen>
+	<dimen name="margin_level_0_2">50dp</dimen>
+	<dimen name="margin_level_0_1">40dp</dimen>
+	<dimen name="margin_level_0">30dp</dimen>
+    <dimen name="margin_level_1">20dp</dimen>
+    <dimen name="margin_level_2">15dp</dimen>
     <dimen name="margin_level_3">10dp</dimen>
     <dimen name="margin_level_4">5dp</dimen>
     
-    <dimen name="padding_level_1">40dp</dimen>
-    <dimen name="padding_level_2">20dp</dimen>
-    <dimen name="padding_level_3">18dp</dimen>
+    <dimen name="padding_level_0">70dp</dimen>
+    <dimen name="padding_level_1">60dp</dimen>
+    <dimen name="padding_level_2">40dp</dimen>
+    <dimen name="padding_level_3">20dp</dimen>
     <dimen name="padding_level_4">15dp</dimen>
-    <dimen name="padding_level_5">12dp</dimen>
+    <dimen name="padding_level_5">10dp</dimen>
     <dimen name="padding_level_6">5dp</dimen>
     
-    <dimen name="connect_config_info_height">150dp</dimen>
+    <dimen name="connect_config_info_height">160dp</dimen>
     
     <dimen name="button_bottom_full_height">50dp</dimen>
     
@@ -39,6 +43,6 @@
     <dimen name="activity_tips_height">400dp</dimen>
     
     <dimen name="pager_indicator_dot_radius">8dp</dimen>
-    <dimen name="pager_guide_icon_min_height">200dp</dimen>
-    <dimen name="pager_guide_icon_max_height">250dp</dimen>
+    <dimen name="pager_guide_icon_min_height">250dp</dimen>
+    <dimen name="pager_guide_icon_max_height">300dp</dimen>
 </resources>

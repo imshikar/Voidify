@@ -537,6 +537,15 @@ public class ConnectConfigActivity extends Activity
 				JSONObject jsonObjectInput = jsonArrayForm.getJSONObject(i);
 				
 				String inputLabel = jsonObjectInput.getString("ID");
+				String inputType = jsonObjectInput.getString("Type");
+				
+				
+				
+				if(inputType.equals("Spinner"))
+				{
+					inputLabel += "_Value";
+				}
+				
 				String inputValue = jsonObjectForm.getString(inputLabel);
 				
 				result = result.replaceAll("%"+inputLabel+"%", inputValue);
@@ -641,6 +650,8 @@ public class ConnectConfigActivity extends Activity
 				String account = getAccount(formJSON);
 				
 				String script = modifyScript(_jsonWiFiObject.getJSONArray("Form"),formJSON,_jsonWiFiObject.getJSONObject("Script").toString());
+				
+				Log.d(DEBUG_TAG, "Script:"+script);
 				
 				long connectID  =  0;
 				

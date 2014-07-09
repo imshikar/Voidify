@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="shikar.in.voidify"
-    android:versionCode="20140704"
-    android:versionName="1.5.0" >
+    android:versionCode="20140709"
+    android:versionName="1.5.3" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -17,29 +17,34 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="shikar.in.voidify.activity.SplashActivity" 
-            	  android:screenOrientation="portrait">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="shikar.in.voidify.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="shikar.in.voidify.activity.ControlActivity" >
+        <activity android:name=".activity.ControlActivity" >
         </activity>
-        <activity android:name="shikar.in.voidify.activity.ConnectGroupActivity" >
+        <activity android:name=".activity.ConnectGroupActivity" >
         </activity>
-        <activity android:name="shikar.in.voidify.activity.ConnectWifiActivity" >
+        <activity android:name=".activity.ConnectWifiActivity" >
         </activity>
-        <activity android:name="shikar.in.voidify.activity.ConnectConfigActivity" >
+        <activity android:name=".activity.ConnectConfigActivity" >
         </activity>
-        
+        <activity 
+            android:name=".activity.GuideActivity" 
+            android:screenOrientation="portrait">
+        </activity>
 
         <receiver
-            android:name="shikar.in.voidify.receiver.WifiBroadcastReceiver"
+            android:name=".receiver.WifiBroadcastReceiver"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -47,9 +52,10 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="shikar.in.voidify.service.AutoConnectService" >
+        <service android:name=".service.AutoConnectService" >
         </service>
 
+        
     </application>
 
 </manifest>

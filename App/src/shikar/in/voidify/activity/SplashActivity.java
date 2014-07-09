@@ -1,8 +1,13 @@
 package shikar.in.voidify.activity;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import shikar.in.voidify.R;
 import shikar.in.voidify.R.layout;
 import shikar.in.voidify.service.AutoConnectService;
+import shikar.in.voidify.utils.ApplicationConfig;
 import shikar.in.voidify.utils.Common;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +17,7 @@ import android.widget.TextView;
 
 public class SplashActivity extends Activity 
 {
-	private final int SPLASH_DISPLAY_LENGHT = 3000;
+	private final int SPLASH_DISPLAY_LENGHT = 2000;
 	
 	private Intent _autoConnectServiceIntent;
 	
@@ -24,6 +29,8 @@ public class SplashActivity extends Activity
 	
 	private Handler _AnimationHandler;
 	
+	private ApplicationConfig _config;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -32,6 +39,8 @@ public class SplashActivity extends Activity
 		
 		_textView = (TextView) findViewById(R.id.activity_splash_text_status);
 		
+		_config = new ApplicationConfig(SplashActivity.this);
+		
 		startAutoConnectService();
 		
 	}
@@ -39,7 +48,12 @@ public class SplashActivity extends Activity
     
     private void startAutoConnectService()
     {
-    	if(!Common.checkAutoConnectService(SplashActivity.this))
+    	String splashShowDate = _config.getSplashShowDate();
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date curDate = new Date(System.currentTimeMillis()) ;
+    	String curDateStr = formatter.format(curDate);
+    	
+    	if(!splashShowDate.equals(curDateStr))
     	{
     		_strStartService = getResources().getString(R.string.splash_start_service);
     		
@@ -49,9 +63,8 @@ public class SplashActivity extends Activity
     		
     		_AnimationHandler = new Handler();
         	_AnimationHandler.post(runnableDotAnimation);
-    		
-    		_autoConnectServiceIntent = new Intent(SplashActivity.this, AutoConnectService.class); 
-    		startService(_autoConnectServiceIntent);
+        	
+        	_config.setSplashShowDate(curDateStr);
     		
     		new Handler().postDelayed(new Runnable()
     		{ 
@@ -59,14 +72,14 @@ public class SplashActivity extends Activity
     	         public void run() 
     	         { 
     	        	 _falgDotAnimation = false;
-    	        	 startMainActivity();
+    	        	 startNextActivity();
     	         } 
     	            
     	    }, SPLASH_DISPLAY_LENGHT); 
     	}
     	else
     	{
-    		startMainActivity();
+    		startNextActivity();
     	}
     }
     
@@ -94,12 +107,33 @@ public class SplashActivity extends Activity
 			}
 	    }
 	};
-        
-    private void startMainActivity()
-    {
-    	Intent mainIntent = new Intent(SplashActivity.this,MainActivity.class); 
+     
+	private void startGuideActivity()
+	{
+		Intent mainIntent = new Intent(SplashActivity.this,GuideActivity.class); 
         
         SplashActivity.this.startActivity(mainIntent); 
+        SplashActivity.this.finish(); 
+	}
+	
+    private void startNextActivity()
+    {   
+    	boolean showGuide = _config.getGuideShow();
+    			
+    	Intent intent = null;
+    	
+    	if(showGuide)
+    	{
+    		intent = new Intent(SplashActivity.this,MainActivity.class); 
+    	}
+    	else
+    	{
+    		intent = new Intent(SplashActivity.this,GuideActivity.class); 
+    		
+    		_config.setGuideShow(true);
+    	}    	
+    	
+        SplashActivity.this.startActivity(intent); 
         SplashActivity.this.finish(); 
     }
     

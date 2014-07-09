@@ -108,11 +108,10 @@ public class WifiBroadcastReceiver extends BroadcastReceiver
 	
 	private void startAutoConnectService()
     {
-    	if(!Common.checkAutoConnectService(_context))
-    	{
-    		Intent _autoConnectServiceIntent = new Intent(_context, AutoConnectService.class); 
-    		_context.startService(_autoConnectServiceIntent);
-    	}
+
+    	Intent _autoConnectServiceIntent = new Intent(_context, AutoConnectService.class); 
+    	_context.startService(_autoConnectServiceIntent);
+    	
     }
 	
 	@Override

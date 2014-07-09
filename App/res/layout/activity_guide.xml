@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/voidify_white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_header_height"
+        android:gravity="center_vertical|center_horizontal" >
+
+        <TextView
+            android:id="@+id/activity_guide_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guide_title"
+            android:textColor="@color/voidify_green_normal"
+            android:textSize="@dimen/font_size_level_2" />
+    </LinearLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_guide_viewpager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </android.support.v4.view.ViewPager>
+
+       <LinearLayout
+           android:id="@+id/activity_guide_linearlayout_pager_indicator"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="@dimen/margin_level_1"
+           android:orientation="horizontal" >
+
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/activity_guide_btn_start"
+            style="@style/Voidify_Button_FullSize"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/button_bottom_full_height"
+            android:layout_weight="1"
+            android:text="@string/guide_button_start_next" />
+    </LinearLayout>
+
+</LinearLayout>

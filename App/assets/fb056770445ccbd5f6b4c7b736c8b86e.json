@@ -36,7 +36,7 @@
     		   "CheckType" : "Page",
     		   "List":[{
     		   		"Page": "https://auth.itaiwan.gov.tw/mobile/auth_page.php",
-    		   		"JS":"$(\"input[name='clt_user']\").val(\"%Username%\");$(\"input[name='clt_pass']\").val(\"%Password%\");$(\"input[name='type'][value='%LoginType%']\").attr(\"checked\",\"checked\");$(\"a.btn\").trigger(\"click\");"
+    		   		"JS":"$(\"input[name='clt_user']\").val(\"%Username%\");$(\"input[name='clt_pass']\").val(\"%Password%\");$(\"input[name='type'][value='%LoginType_Value%']\").attr(\"checked\",\"checked\");$(\"a.btn\").trigger(\"click\");"
     		   }]
     }
 }

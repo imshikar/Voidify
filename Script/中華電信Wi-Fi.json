@@ -39,7 +39,7 @@
     		   		"JS":"location.href=$(\"div.enterBtn a\").attr('href');"
     		   }, {
     		   		"Page": "https://authweb.hinet.net/auth/auth_login/login1",
-    		   		"JS": "seltype%LoginType%();$(\"input[name='cht_user']\").each(function(index){if(index+1 == %LoginType%){$(this).val(\"%Username%\");}});$(\"input[name='passwd']\").each(function(index){if(index+1 == %LoginType%){$(this).val(\"%Password%\");}});$('#submit').trigger('click');"
+    		   		"JS": "seltype%LoginType_Value%();$(\"input[name='cht_user']\").each(function(index){if(index+1 == %LoginType_Value%){$(this).val(\"%Username%\");}});$(\"input[name='passwd']\").each(function(index){if(index+1 == %LoginType_Value%){$(this).val(\"%Password%\");}});$('#submit').trigger('click');"
     		   }]
     }
 }

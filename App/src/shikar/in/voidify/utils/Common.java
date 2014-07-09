@@ -33,32 +33,18 @@ public class Common
 
     }
 	
-	public static boolean checkAutoConnectService(Context context)
+	public static String getAPWhereSQL(String ssid, String column)
 	{
-		boolean resutl = false;
+		String whereSQL = column + " = '"+ssid+"' ";
 		
-		String autoConnectService = "shikar.in.voidify.service.AutoConnectService";
-	    	
-	    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-
-	    List<ActivityManager.RunningServiceInfo> info;
-
-	    info = am.getRunningServices(200);
-
-	    for(Iterator iterator = info.iterator(); iterator.hasNext();) 
-	    {
-	    	RunningServiceInfo runningTaskInfo = (RunningServiceInfo) iterator.next();
-	    		
-	    
-	    	if (runningTaskInfo.service.getClassName().equals(autoConnectService))
-	    	{
-	    		resutl = true;
-	    		break;
-	    	}
-
-	    }
-	    	
-	    return resutl;
+		String[] ssidList = ssid.split("[_-]");
+		
+		for(int i=0 ; i<ssidList.length ; i++)
+		{
+			whereSQL += "OR "+column+" = '"+ssidList[i]+"' ";
+		}
+		
+		return whereSQL;
 	}
 	
 }

@@ -1,0 +1,25 @@
+{
+    "Name": "南臺科技大學校園網路",
+    "SSID": ["stut", "stust"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "35608a37dc0ee066ab8b455b284421a4",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://wireless.stust.edu.tw/upload/custom/cp-stust/index.html",
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Login']\").trigger('click');"
+    		   }]
+    }
+}

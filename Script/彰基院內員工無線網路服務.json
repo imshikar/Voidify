@@ -1,0 +1,25 @@
+{
+    "Name": "彰基院內員工無線網路服務",
+    "SSID": ["CCH"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "a047cafe4486ec91f317c19aad440a60",
+    "Author": "teaegg",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://192.168.19.223/cgi-bin/login",
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Login']\").trigger('click');"
+    		   }]
+    }
+}
