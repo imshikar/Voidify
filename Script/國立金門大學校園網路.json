@@ -18,7 +18,7 @@
     "Script": {
     		   "CheckType" : "Page",
     		   "List":[{
-    		   		"Page": "https://www.wifly.com.tw/mWifly6/login.aspx",
+    		   		"Page": "http://192.168.175.254/login.php",
     		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='userpwd']\").val(\"%Password\");$(\"input[name='login']\").trigger('click');"
     		   }]
     }
