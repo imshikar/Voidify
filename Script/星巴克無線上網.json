@@ -1,0 +1,28 @@
+{
+    "Name": "星巴克無線上網",
+    "SSID": ["Starbucks_OTGFree"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "56288d08a1600f0d19788ae2775f93a2",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "卡號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://www.wifly.com.tw/starbucksnew/info_phone_tw.aspx",
+    		   		"JS":"$(\"input[name='AgreeBtn']\").trigger('click');"
+    		   }, {
+    		   		"Page": "https://www.wifly.com.tw/starbucksnew/index_phone.aspx",
+    		   		"JS": "$(\"input[name='username']\").val('%Username%');$(\"input[name='password']\").val('%Password%');$(\"input[name='Button']\").trigger('click');"
+    		   }]
+    }
+}
