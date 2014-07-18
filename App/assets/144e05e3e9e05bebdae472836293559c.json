@@ -1,0 +1,24 @@
+{
+    "Name": "逢甲大學校園網路",
+    "SSID": ["FCU"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "144e05e3e9e05bebdae472836293559c",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='PtUser']\").val(\"%Username%\");$(\"input[name='PtPwd']\").val(\"%Password\");$(\"input[name='PtButton']\").trigger('click');"
+    		   }]
+    }
+}

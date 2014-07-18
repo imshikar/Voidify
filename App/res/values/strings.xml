@@ -14,9 +14,13 @@
     <string name="control_button_connect_add">新增連線</string>
     <string name="control_dialog_action_edit">修改</string>
     <string name="control_dialog_action_delete">刪除</string>
+    <string name="control_dialog_action_login">立即登入</string>
     <string name="control_alert_delete_title">刪除連線資訊</string>
     <string name="control_alert_delete_message">你確定要刪除「[ConfigTitle]」的連線資訊嗎?</string>
     <string name="control_alert_delete_button_ok">刪除</string>
+    <string name="control_alert_login_title">立即登入</string>
+    <string name="control_alert_login_message">你確定要使用「[ConfigTitle]」的連線資訊來登入嗎?</string>
+    <string name="control_alert_login_button_ok">登入</string>
     <string name="connect_type_auto">自動</string>
     <string name="connect_type_tips">提示</string>
     <string name="connect_type_disable">禁止</string>

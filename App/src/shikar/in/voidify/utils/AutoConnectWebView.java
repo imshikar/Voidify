@@ -73,7 +73,8 @@ public class AutoConnectWebView extends WebView
 		this.getSettings().setJavaScriptEnabled(true);
 		this.getSettings().setAllowContentAccess(true);
 		this.getSettings().setAllowFileAccess(true); 
-		this.getSettings().setDomStorageEnabled(true);		
+		this.getSettings().setDomStorageEnabled(true);
+		this.getSettings().setSavePassword(false);
 	}
 	
 	public void addJQuerySupported(boolean trriger)

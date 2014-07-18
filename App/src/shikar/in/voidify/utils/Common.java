@@ -35,16 +35,16 @@ public class Common
 	
 	public static String getAPWhereSQL(String ssid, String column)
 	{
-		String whereSQL = column + " = '"+ssid+"' ";
+		String whereSQL = "";
 		
-		String[] ssidList = ssid.split("[_-]");
+		String[] ssidList = ssid.split("[_\\- ]");
 		
 		for(int i=0 ; i<ssidList.length ; i++)
 		{
 			whereSQL += "OR "+column+" = '"+ssidList[i]+"' ";
 		}
 		
-		return whereSQL;
+		return whereSQL.substring(2);
 	}
 	
 }

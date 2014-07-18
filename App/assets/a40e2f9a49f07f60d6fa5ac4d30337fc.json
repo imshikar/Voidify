@@ -1,0 +1,24 @@
+{
+    "Name": "國立交通大學校園網路",
+    "SSID": ["NCTU-Wireless", "NCTU-Guest"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "a40e2f9a49f07f60d6fa5ac4d30337fc",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

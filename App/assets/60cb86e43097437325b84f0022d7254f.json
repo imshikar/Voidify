@@ -1,0 +1,24 @@
+{
+    "Name": "國立台灣大學校園網路",
+    "SSID": ["NTU","ntu","ntu_peap"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "60cb86e43097437325b84f0022d7254f",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "Name": "國立成功大學校園網路",
+    "SSID": ["NCKU"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "b3845d44baed4b4974e981f4a815ed84",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

@@ -93,7 +93,7 @@
     		   "CheckType" : "Page",
     		   "List":[{
     		   		"Page": "https://www.wifly.com.tw/mWifly6/login.aspx",
-    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"select[name='UserRole'] option[value='%UserRole_Value%']\").prop(\"selected\", \"selected\");"
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"select[name='UserRole'] option[value='%UserRole_Value%']\").prop(\"selected\", \"selected\");client_login();"
     		   }]
     }
 }

@@ -88,10 +88,12 @@
     "MailDomain_Value"
   ],
   "Script": {
-    "CheckType": "Page",
+    "CheckType": "Index",
     "List": [
       {
-        "Page": "https://192.168.54.254:8091/cgi-bin/index.cgi",
+        "JS": "$(\"input[name='account']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"select[id='mailDomain'] option[value='%MailDomain_Value%']\").prop(\"selected\",\"selected\");$(\"input[id='Submit_OK']\").trigger(\"click\");"
+      },      
+      {
         "JS": "$(\"input[name='account']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"select[id='mailDomain'] option[value='%MailDomain_Value%']\").prop(\"selected\",\"selected\");$(\"input[id='Submit_OK']\").trigger(\"click\");"
       }
     ]

@@ -24,7 +24,7 @@ public class AutoConnect
 {
 	private final static String DEBUG_TAG = "Voidify_Utils_AutoConnect";
 	
-	private final static String CHECK_NETWORK_PAGE = "http://tw.voidify.net/api/";
+	public final static String CHECK_NETWORK_PAGE = "http://tw.voidify.net/api/";
 	
 	public final static int CHECK_NETWORK_STATUS = 1;
 	public final static int DO_NETWORK_LOGIN = 2;
@@ -157,18 +157,36 @@ public class AutoConnect
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-		String whereSQL = Common.getAPWhereSQL(_ssid, "ap._SSID");
-		
-		Cursor cursor = db.rawQuery("SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ("+whereSQL+") LIMIT 1", null);
-		
-		Log.d(DEBUG_TAG, "SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ("+whereSQL+") LIMIT 1");
+		Cursor cursor = db.rawQuery("SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ap._SSID = ?  LIMIT 1", new String[]{_ssid});
 		
 		int rowsNum = cursor.getCount();
- 
-		cursor.moveToFirst();		
+		
+		boolean haveConnect = false;
 		
 		if(rowsNum == 1)
 		{
+			haveConnect = true;
+		}
+		else
+		{
+			cursor.close();
+			
+			String whereSQL = Common.getAPWhereSQL(_ssid, "ap._SSID");
+			
+			cursor = db.rawQuery("SELECT connect._Name, connect._ConnectType, connect._Script FROM connect, ap WHERE connect._ID = ap._ConnectID AND ("+whereSQL+") LIMIT 1", null);
+		
+			rowsNum = cursor.getCount();
+			
+			if(rowsNum == 1)
+			{
+				haveConnect = true;
+			}
+		}
+		
+		if(haveConnect)
+		{
+			cursor.moveToFirst();	
+			
 			_name = cursor.getString(0);
 			_connectType = ConnectType.values()[cursor.getInt(1)];
 			try {

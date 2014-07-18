@@ -57,6 +57,13 @@ public class AutoConnectService extends Service
 	{
 		Log.d(DEBUG_TAG, "Service Start");
 
+		_connectSSID = intent.getStringExtra("connect_ssid");
+		
+		if(_connectSSID != null)
+		{
+			startConnect();
+		}
+		
 		registerAutoConnectReciver();
 		
 	    return START_REDELIVER_INTENT;
@@ -267,7 +274,8 @@ public class AutoConnectService extends Service
 	     _autoConnectWebView = new AutoConnectWebView(AutoConnectService.this, webHandler);
 	     _linearLayoutView.addView(_autoConnectWebView);
 
-	     _autoConnectWebView.loadUrl("http://tw.voidify.net/api");
+	     long timestamp = System.currentTimeMillis();
+	     _autoConnectWebView.loadUrl(AutoConnect.CHECK_NETWORK_PAGE+"?r="+timestamp);
 	     
 	     _windowManager.addView(_linearLayoutView, params);
 

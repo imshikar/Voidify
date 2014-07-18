@@ -4,13 +4,48 @@
     "Title": "校園網路",
     "List": [
       {
+        "UUID": "8828d9e3d9780c72c1092db9983cb60c",
+        "Name": "台灣首府大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "89ff33f5e72bf48cb699f003f2b44e38",
+        "Name": "正修科技大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "35608a37dc0ee066ab8b455b284421a4",
         "Name": "南臺科技大學校園網路",
         "Version": 1
       },
       {
+        "UUID": "60cb86e43097437325b84f0022d7254f",
+        "Name": "國立台灣大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "a40e2f9a49f07f60d6fa5ac4d30337fc",
+        "Name": "國立交通大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "b3845d44baed4b4974e981f4a815ed84",
+        "Name": "國立成功大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "47478bea9cf2f2705d320574b99e86ff",
         "Name": "國立金門大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "3f52f0146766f2bad31ada67f7343173",
+        "Name": "國立政治大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "1fb153bf41137373855c8ca74755ec70",
+        "Name": "國立清華大學校園網路",
         "Version": 1
       },
       {
@@ -24,8 +59,18 @@
         "Version": 1
       },
       {
+        "UUID": "1ff641d929bba161e5dcbe6adc461fea",
+        "Name": "國立臺灣師範大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "4e54e8f133ba07839fba9707f81bb53e",
         "Name": "康寧大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "144e05e3e9e05bebdae472836293559c",
+        "Name": "逢甲大學校園網路",
         "Version": 1
       },
       {
@@ -42,6 +87,26 @@
       {
         "UUID": "fb056770445ccbd5f6b4c7b736c8b86e",
         "Name": "iTaiwan無線上網",
+        "Version": 1
+      },
+      {
+        "UUID": "309e62c6c8151fcd84bb2f53bc1e6222",
+        "Name": "台中市公務無線網路",
+        "Version": 1
+      },
+      {
+        "UUID": "71617c62e2ea09ede172f2186d0b136e",
+        "Name": "高雄市教育局無線網路",
+        "Version": 1
+      },
+      {
+        "UUID": "a070f6e1a873b36866fe1a0b87cef885",
+        "Name": "新北市政府無線上網",
+        "Version": 1
+      },
+      {
+        "UUID": "faf6b7ca060ba16e0f1cbe52059bcbe6",
+        "Name": "臺北公眾區免費無線上網",
         "Version": 1
       },
       {
@@ -78,6 +143,11 @@
       {
         "UUID": "843b96e8448fc0d9ab91a9345e1a2c44",
         "Name": "亞太電信Wi-Fi",
+        "Version": 1
+      },
+      {
+        "UUID": "56288d08a1600f0d19788ae2775f93a2",
+        "Name": "星巴克無線上網",
         "Version": 1
       }
     ]

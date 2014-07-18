@@ -143,16 +143,37 @@ public class MainActivity extends Activity {
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		String whereSQL = Common.getAPWhereSQL(ssid, "ap._SSID");
-		
-		Cursor cursor = db.rawQuery("SELECT ap._ConnectID FROM ap WHERE "+whereSQL+" LIMIT 1", null);
-		
+		Cursor cursor = db.rawQuery("SELECT ap._ConnectID FROM ap WHERE ap._SSID = ? LIMIT 1", new String[]{ssid});
+
 		int rowsNum = cursor.getCount();
 		
-		cursor.moveToFirst();		
+		Log.d(DEBUG_TAG, "Count C: "+ rowsNum);
 		
+		boolean haveConnect = false;
+				
 		if(rowsNum == 1)
 		{
+			haveConnect = true;
+		}
+		else
+		{
+			cursor.close();
+			
+			String whereSQL = Common.getAPWhereSQL(ssid, "ap._SSID");
+			
+			cursor = db.rawQuery("SELECT ap._ConnectID FROM ap WHERE "+whereSQL+" LIMIT 1", null);
+			
+			rowsNum = cursor.getCount();
+			
+			if(rowsNum == 1)
+			{
+				haveConnect = true;
+			}
+		}
+		
+		if(haveConnect)
+		{
+			cursor.moveToFirst();	
 			result = cursor.getLong(0);
 		}
 		
@@ -171,16 +192,38 @@ public class MainActivity extends Activity {
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		String whereSQL = Common.getAPWhereSQL(ssid, "support._SSID");
-		
-		Cursor cursor = db.rawQuery("SELECT support._Name FROM support WHERE "+whereSQL+" LIMIT 1", null);
-		
+		Cursor cursor = db.rawQuery("SELECT support._Name FROM support WHERE support._SSID = ? LIMIT 1", new String[]{ssid});
+
 		int rowsNum = cursor.getCount();
 		
-		cursor.moveToFirst();		
+		Log.d(DEBUG_TAG, "Count T: "+rowsNum );
+		
+		boolean haveConnect = false;
 		
 		if(rowsNum == 1)
 		{
+			haveConnect = true;
+		}
+		else
+		{			
+			cursor.close();
+			
+			String whereSQL = Common.getAPWhereSQL(ssid, "support._SSID");
+			
+			cursor = db.rawQuery("SELECT support._Name FROM support WHERE "+whereSQL+" LIMIT 1", null);
+		
+			rowsNum = cursor.getCount();
+			
+			if(rowsNum == 1)
+			{
+				haveConnect = true;
+			}
+			
+		}
+		
+		if(haveConnect)
+		{
+			cursor.moveToFirst();		
 			result = cursor.getString(0);
 		}
 		

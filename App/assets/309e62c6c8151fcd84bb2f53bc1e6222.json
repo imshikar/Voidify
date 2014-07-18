@@ -1,9 +1,9 @@
 {
-    "Name": "國立金門大學校園網路",
-    "SSID": ["NQU"],
-    "Type": 3,
+    "Name": "台中市公務無線網路",
+    "SSID": ["tc"],
+    "Type": 2,
     "Version": 1,
-    "UUID": "47478bea9cf2f2705d320574b99e86ff",
+    "UUID": "309e62c6c8151fcd84bb2f53bc1e6222",
     "Author": "Voidify",
     "Form": [{
         "ID": "Username",
@@ -16,9 +16,8 @@
     }],
     "Account" : ["Username"],
     "Script": {
-    		   "CheckType" : "Page",
+    		   "CheckType" : "Index",
     		   "List":[{
-    		   		"Page": "http://192.168.175.254/login.php",
     		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='userpwd']\").val(\"%Password\");$(\"input[name='login']\").trigger('click');"
     		   }]
     }

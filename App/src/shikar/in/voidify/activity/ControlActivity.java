@@ -8,6 +8,8 @@ import shikar.in.voidify.adapter.FormSpinnerDiagloAdapter;
 import shikar.in.voidify.object.ConnectInfoObject;
 import shikar.in.voidify.object.FormSpinnerOptionObject;
 import shikar.in.voidify.object.ConnectInfoObject.ConnectType;
+import shikar.in.voidify.service.AutoConnectService;
+import shikar.in.voidify.utils.Common;
 import shikar.in.voidify.utils.DBHelper;
 import shikar.in.voidify.utils.DialogAlert;
 import shikar.in.voidify.utils.DialogAlert.ButtonType;
@@ -31,8 +33,9 @@ public class ControlActivity extends Activity
 {
 	private final String DEBUG_TAG = "Voidify_Activity_Control"; 
 	
-	public final static String CONTROL_ACT_EDIT = "Edit";
-	public final static String CONTROL_ACT_DELETE= "Delete";
+	public final static String CONTROL_ACT_EDIT   = "Edit";
+	public final static String CONTROL_ACT_DELETE = "Delete";
+	public final static String CONTROL_ACT_LOGIN  = "Login";
 	
 	private Button btnConnectAdd;
 	private ListView _listView;
@@ -110,6 +113,11 @@ public class ControlActivity extends Activity
 						delConnectConfig(connectInfoObj.getID(),
 										 connectInfoObj.getUUID(),
 										 connectInfoObj.getTitle());
+					}
+					else if( controlAction.equals(CONTROL_ACT_LOGIN))
+					{
+						manaulLogin(connectInfoObj.getID(), 
+								   connectInfoObj.getTitle());
 					}
 					
 					_longClickDialog.dismiss();
@@ -192,6 +200,71 @@ public class ControlActivity extends Activity
 		_messageAlertDialog.show();
 	}
 	
+	private void manaulLogin(Long id, String title)
+	{
+		String alertTitle = getResources().getString(R.string.control_alert_login_title);
+		String alertMessage = getResources().getString(R.string.control_alert_login_message);
+		alertMessage = alertMessage.replace("[ConfigTitle]", title);
+	
+		_messageAlertDialog = new DialogAlert(ControlActivity.this, alertTitle, alertMessage, ButtonType.OKAndCancel);
+		_messageAlertDialog.setButtonOKText(R.string.control_alert_login_button_ok);
+		_messageAlertDialog.setCallbackObject(id);
+		_messageAlertDialog.setCallback(new DialogAlertCallback(){
+
+			@Override
+			public void onButtonClick(int buttonID, Object object)
+			{
+				switch(buttonID)
+				{
+					case R.id.dialog_alert_btn_ok:
+						
+						Long connectID = (Long)object;
+
+						doManaulLogin(connectID);
+						
+						break;
+						
+					case R.id.dialog_alert_btn_cancel:
+						break;
+				}
+			}
+
+			
+		});
+		
+		_messageAlertDialog.show();
+	}
+	
+	private void doManaulLogin(Long id)
+	{
+		DBHelper dbHelper = new DBHelper(ControlActivity.this);
+		
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		
+		Cursor cursor = db.rawQuery("SELECT ap._SSID FROM ap WHERE ap._ConnectID = ? LIMIT 1", new String[]{String.valueOf(id)});
+
+		int rowsNum = cursor.getCount();
+		
+		String connectSSID = "";
+		
+		if(rowsNum == 1)
+		{
+			cursor.moveToFirst();
+			
+			connectSSID = cursor.getString(0);
+			
+			Intent _autoConnectServiceIntent = new Intent(ControlActivity.this, AutoConnectService.class); 
+			_autoConnectServiceIntent.putExtra("connect_ssid", connectSSID);
+			startService(_autoConnectServiceIntent);
+
+		}
+		
+		cursor.close();
+		db.close();
+		dbHelper.close();
+
+	}
+	
 	private void initialView()
 	{
 		btnConnectAdd = (Button) findViewById(R.id.activity_control_btn_connect_add);
@@ -213,6 +286,7 @@ public class ControlActivity extends Activity
 	{
 		_longClickOptionList = new ArrayList<FormSpinnerOptionObject>();
 		
+		_longClickOptionList.add( new FormSpinnerOptionObject(getResources().getString(R.string.control_dialog_action_login), CONTROL_ACT_LOGIN) );
 		_longClickOptionList.add( new FormSpinnerOptionObject(getResources().getString(R.string.control_dialog_action_edit), CONTROL_ACT_EDIT) );
 		_longClickOptionList.add( new FormSpinnerOptionObject(getResources().getString(R.string.control_dialog_action_delete), CONTROL_ACT_DELETE) );
 		

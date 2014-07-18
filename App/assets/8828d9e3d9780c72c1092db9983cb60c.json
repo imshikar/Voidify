@@ -1,9 +1,9 @@
 {
-    "Name": "國立金門大學校園網路",
-    "SSID": ["NQU"],
+    "Name": "台灣首府大學校園網路",
+    "SSID": ["TSU-WLAN"],
     "Type": 3,
     "Version": 1,
-    "UUID": "47478bea9cf2f2705d320574b99e86ff",
+    "UUID": "8828d9e3d9780c72c1092db9983cb60c",
     "Author": "Voidify",
     "Form": [{
         "ID": "Username",
@@ -18,8 +18,8 @@
     "Script": {
     		   "CheckType" : "Page",
     		   "List":[{
-    		   		"Page": "http://192.168.175.254/login.php",
-    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='userpwd']\").val(\"%Password\");$(\"input[name='login']\").trigger('click');"
+    		   		"Page": "https://securelogin.arubanetworks.com/cgi-bin/login",
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password\");$(\"input[name='Login']\").trigger('click');"
     		   }]
     }
 }

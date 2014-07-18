@@ -1,6 +1,6 @@
 {
     "Name": "iTaiwan無線上網",
-    "SSID": ["iTaiwan"],
+    "SSID": ["iTaiwan","iTaichung"],
     "Type": 2,
     "Version": 1,
     "UUID": "fb056770445ccbd5f6b4c7b736c8b86e",

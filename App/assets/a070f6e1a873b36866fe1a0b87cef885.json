@@ -1,0 +1,45 @@
+{
+    "Name": "新北市政府無線上網",
+    "SSID": ["NewTaipei"],
+    "Type": 2,
+    "Version": 1,
+    "UUID": "a070f6e1a873b36866fe1a0b87cef885",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "手機號碼"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }, {
+        "ID": "LoginType",
+        "Type": "Spinner",
+        "Title": "帳號身分",
+        "Option": [{
+            "Title": "NewTaipei",
+            "Value": "NewTaipei"
+        }, {
+            "Title": "iTaiwan",
+            "Value": "iTaiwan"
+        }, {
+            "Title": "TPE-Free",
+            "Value": "TPE-Free"
+        }, {
+            "Title": "Fukuoka City",
+            "Value": "NTTBP"
+        }, {
+            "Title": "Okinawa City",
+            "Value": "NTTBP"
+        }]
+    }],
+    "Account" : ["Username", "(", "LoginType_Title", ")"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://auth.wifi.ntpc.gov.tw/mobile/auth_page.php",
+    		   		"JS":"$(\"input[name='clt_user']\").val(\"%Username%\");$(\"input[name='clt_pass']\").val(\"%Password%\");$(\"select[name='roaming'] option[value='%LoginType_Value%']\").prop(\"selected\",\"selected\");$(\"input[name='button']\").trigger(\"click\");"
+    		   }]
+    }
+}

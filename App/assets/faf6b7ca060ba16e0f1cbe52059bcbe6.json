@@ -1,0 +1,42 @@
+{
+    "Name": "臺北公眾區免費無線上網",
+    "SSID": ["TPE-Free"],
+    "Type": 2,
+    "Version": 1,
+    "UUID": "faf6b7ca060ba16e0f1cbe52059bcbe6",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "LoginType",
+        "Type": "Spinner",
+        "Title": "上網身分",
+        "Option": [{
+            "Title": "Taipei Free 用戶",
+            "Value": "58"
+        }, {
+            "Title": "iTaiwan 用戶",
+            "Value": "59"
+        }, {
+            "Title": "NEWTAIPEI 用戶",
+            "Value": "60"
+        }, {
+            "Title": "金門無線島用戶",
+            "Value": "73"
+        }]
+    }, {
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號(手機號碼)"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "上網密碼"
+    }],
+    "Account" : ["Username", "(", "LoginType_Title", ")"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://www.tpe-free.tw/TPE/phone/tpe_plogin.aspx",
+    		   		"JS":"$(\"input[name='pno']\").val(\"%Username%\");$(\"input[name='passwd']\").val(\"%Password%\");$(\"select[name='ddlUserRole'] option[value='%LoginType_Value%']\").prop(\"selected\",\"selected\");__doPostBack('btnLogin','');"
+    		   }]
+    }
+}
