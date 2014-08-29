@@ -1,0 +1,17 @@
+{
+    "Name": "新光三越免費無線上網",
+    "SSID": ["SKM-Free"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "986aafd242347f8d6e9ecb86b62521de",
+    "Author": "Voidify",
+    "Form": [],
+    "Account" : ["免費登入"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://wifimember.skm.com.tw/",
+    		   		"JS":"$(\"#ContentPlaceHolder1_check_rule\").attr(\"checked\", \"checked\");$(\"#ContentPlaceHolder1_btnSubmit\").trigger(\"click\");"
+    		   }]
+    }
+}

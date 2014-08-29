@@ -1,0 +1,24 @@
+{
+    "Name": "台北榮民總醫院無線網路",
+    "SSID": ["employee", "visitor"],
+    "Type": 4,
+    "Version": 1,
+    "UUID": "a330656d96df79043b46d55b1680a7f2",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

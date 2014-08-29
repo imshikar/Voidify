@@ -4,6 +4,11 @@
     "Title": "校園網路",
     "List": [
       {
+        "UUID": "dcaa91460b8b10844db930ac6fe73ced",
+        "Name": "台南應用科技大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "8828d9e3d9780c72c1092db9983cb60c",
         "Name": "台灣首府大學校園網路",
         "Version": 1
@@ -14,13 +19,43 @@
         "Version": 1
       },
       {
+        "UUID": "05c2583cee886491b795e96672c2e76c",
+        "Name": "東方設計學院校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "4a5ea2dd0dd6dabda7f9ed4a6b2f8543",
+        "Name": "長榮大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "35608a37dc0ee066ab8b455b284421a4",
         "Name": "南臺科技大學校園網路",
         "Version": 1
       },
       {
+        "UUID": "5727226a0f41b2e7135b15083fc8ba6f",
+        "Name": "高苑科技大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "7169ac34a2867ab917a83760ca07bc21",
+        "Name": "高雄醫學大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "66f531ffd1d60e240e066dd64b06d159",
+        "Name": "國立中正大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "60cb86e43097437325b84f0022d7254f",
         "Name": "國立台灣大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "9898c90f210346abd4e974ecd2d83c7a",
+        "Name": "國立台灣體育運動大學校園網路",
         "Version": 1
       },
       {
@@ -31,6 +66,11 @@
       {
         "UUID": "b3845d44baed4b4974e981f4a815ed84",
         "Name": "國立成功大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "4b0c7be60a47825f3670a191d4b47c99",
+        "Name": "國立虎尾科技大學校園網路",
         "Version": 1
       },
       {
@@ -49,6 +89,16 @@
         "Version": 1
       },
       {
+        "UUID": "5a623ae925d11faa8400b337e631b288",
+        "Name": "國立陽明大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "71d162b88a14cfb5b7b198ac6a980361",
+        "Name": "國立臺中科技大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "6403afd5ede180a0da69a8582f2bfcf4",
         "Name": "國立臺北大學校園網路",
         "Version": 1
@@ -59,8 +109,18 @@
         "Version": 1
       },
       {
+        "UUID": "602f79f8fc47e4b60728c34aeb6a50ee",
+        "Name": "國立臺灣科技大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "1ff641d929bba161e5dcbe6adc461fea",
         "Name": "國立臺灣師範大學校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "5db9818a04c20049181b2992b727e015",
+        "Name": "國立臺灣藝術大學校園網路",
         "Version": 1
       },
       {
@@ -74,8 +134,18 @@
         "Version": 1
       },
       {
+        "UUID": "edc3494e63086c6d9e5904ba7ea1a66f",
+        "Name": "嘉南藥理科技大學校園網路",
+        "Version": 1
+      },
+      {
         "UUID": "c1dc7f8bc8d6b8dad68a62b8ab810a2b",
         "Name": "興國管理學院校園網路",
+        "Version": 1
+      },
+      {
+        "UUID": "b91f9b101ef5685817193b1bee6932bd",
+        "Name": "龍華科技大學校園網路",
         "Version": 1
       }
     ]
@@ -105,6 +175,11 @@
         "Version": 1
       },
       {
+        "UUID": "8400caeeca138604f8f55cfad424db5b",
+        "Name": "新北市教育局無線網路",
+        "Version": 1
+      },
+      {
         "UUID": "faf6b7ca060ba16e0f1cbe52059bcbe6",
         "Name": "臺北公眾區免費無線上網",
         "Version": 1
@@ -131,6 +206,11 @@
         "Version": 1
       },
       {
+        "UUID": "cb72adacce4cd7508da44bac39516588",
+        "Name": "7-WiFi無線上網(每日免費)",
+        "Version": 1
+      },
+      {
         "UUID": "0eee884c97a84b0d124d197767bfc179",
         "Name": "WIFLY無線上網",
         "Version": 1
@@ -149,6 +229,16 @@
         "UUID": "56288d08a1600f0d19788ae2775f93a2",
         "Name": "星巴克無線上網",
         "Version": 1
+      },
+      {
+        "UUID": "986aafd242347f8d6e9ecb86b62521de",
+        "Name": "新光三越免費無線上網",
+        "Version": 1
+      },
+      {
+        "UUID": "496af5533d432e526887e05ebfa7731b",
+        "Name": "遠傳電信Wi-Fi",
+        "Version": 1
       }
     ]
   },
@@ -156,6 +246,11 @@
     "Type": 4,
     "Title": "公司網路",
     "List": [
+      {
+        "UUID": "a330656d96df79043b46d55b1680a7f2",
+        "Name": "台北榮民總醫院無線網路",
+        "Version": 1
+      },
       {
         "UUID": "a047cafe4486ec91f317c19aad440a60",
         "Name": "彰基院內員工無線網路服務",

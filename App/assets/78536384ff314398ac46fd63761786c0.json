@@ -89,12 +89,9 @@
   ],
   "Script": {
     "CheckType": "Index",
-    "List": [
+    "List": [     
       {
-        "JS": "$(\"input[name='account']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"select[id='mailDomain'] option[value='%MailDomain_Value%']\").prop(\"selected\",\"selected\");$(\"input[id='Submit_OK']\").trigger(\"click\");"
-      },      
-      {
-        "JS": "$(\"input[name='account']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"select[id='mailDomain'] option[value='%MailDomain_Value%']\").prop(\"selected\",\"selected\");$(\"input[id='Submit_OK']\").trigger(\"click\");"
+        "JS": "$(\"input[name='account']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"select[id='mailDomain'] option[value='%MailDomain_Value%']\").prop(\"selected\",\"selected\");$(\"input[id='Submit_OK']\").trigger(\"click\");reAccount();"
       }
     ]
   }

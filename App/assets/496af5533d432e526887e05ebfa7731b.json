@@ -1,0 +1,39 @@
+{
+    "Name": "遠傳電信Wi-Fi",
+    "SSID": ["FET Wi-Fi"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "496af5533d432e526887e05ebfa7731b",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "LoginType",
+        "Type": "Spinner",
+        "Title": "登入身份",
+        "Option": [{
+            "Title": "行動用戶",
+            "Value": "https://pas.aptilo.com/pas/parsed/fetsession/login_mobilea.html"
+        }, {
+            "Title": "固網用戶",
+            "Value": "https://service.seed.net.tw/register-cgi/login"
+        }]
+    }, {
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username", "(", "LoginType_Title", ")"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://pas.aptilo.com/pas/parsed/fetsession/indexa.html",
+    		   		"JS":"var voidify_type_index=0;switch('%LoginType_Title%'){case'行動用戶':voidify_type_index=0;break;case'固網用戶':voidify_type_index=1;break}$(\"a\").each(function(index){if(index==voidify_type_index){location.href=$(this).prop(\"href\");return false}});"
+    		   }, {
+                    "Page": "%LoginType_Value%",
+                    "JS": "switch('%LoginType_Title%'){case'行動用戶':$(\"input[name='user']\").val('%Username%');$(\"input[name='password']\").val('%Password%');$(\"input[type='image']\").trigger('click');break;case'固網用戶':$(\"input[name='UserNo']\").val('%Username%');$(\"input[name='UserPwd']\").val('%Password%');document.inputform.submit();break}"
+               }]
+    }
+}

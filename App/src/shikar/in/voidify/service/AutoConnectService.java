@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import shikar.in.voidify.R;
 import shikar.in.voidify.utils.AutoConnect;
 import shikar.in.voidify.utils.AutoConnectWebView;
+import shikar.in.voidify.utils.JSAlertMessage;
 import shikar.in.voidify.utils.NotificationBox;
 import android.app.Notification;
 import android.app.Service;
@@ -22,6 +23,7 @@ import android.view.Gravity;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class AutoConnectService extends Service
 {
@@ -44,7 +46,7 @@ public class AutoConnectService extends Service
 	private long _autoConnectTimeOut = 30000;
 	private Timer _autoConnectTimer;
 	
-
+	
 	@Override
 	public IBinder onBind(Intent intent)
 	{
@@ -95,9 +97,9 @@ public class AutoConnectService extends Service
 		    		
 		    		Log.d(DEBUG_TAG, "Page Finished:" + _scriptFinishedCount);
 		    		
-		    		String thisPage = (String) msg.obj;
+		    		String[] thisPage = (String[]) msg.obj;
 		    		
-		    		checkLoginSuccess(thisPage);
+		    		checkLoginSuccess(thisPage[0], thisPage[1]);
 		    		
 		    		break;
 		    		
@@ -108,14 +110,32 @@ public class AutoConnectService extends Service
 		    		scriptWorker();
 		    		
 		    		break;
+		    		
+		    	case AutoConnectWebView.MSG_JS_ALERT:
+		    		
+		    		JSAlertMessage jsAlert = (JSAlertMessage) msg.obj;
+
+		    		Message message = new Message();
+	                message.what = AutoConnect.AUTO_CONNECT_ALERT;
+	                message.obj = jsAlert;
+	                
+	                _handler.sendMessage(message);
+		    				
+		    		//Toast.makeText(AutoConnectService.this, jsAlert.getMessage(), Toast.LENGTH_SHORT).show();
+		    		
+		    		break;
 		    }
 		}
 	};
 	
-	private void checkLoginSuccess(String thisPage)
+	private void checkLoginSuccess(String thisPage, String thisFile)
 	{
+		Log.d(DEBUG_TAG, "File:" + thisFile);
+		
 		String checkType = _autoConnect.getScriptCheckType();
 		int scriptLength = _autoConnect.getScriptListLength();
+		
+		destoryConnectTimeOut();
 		
 		if(checkType.equals("Index"))
 		{
@@ -127,6 +147,8 @@ public class AutoConnectService extends Service
 			else
 			{
 				String script = _autoConnect.getScriptJS(_scriptFinishedCount);
+				
+				setConnectTimeOut();
 				
 				if(!script.equals(""))
 				{
@@ -149,12 +171,33 @@ public class AutoConnectService extends Service
 			}
 			else
 			{
+				setConnectTimeOut();
+				
 				if(thisPage.equals(thisCheckPage))
 				{
 					_autoConnectWebView.addJQuerySupported(true);
 				}
 			}
 			
+		}
+		else if(checkType.equals("File"))
+		{
+			String thisCheckFile = _autoConnect.getCheckFile(_scriptFinishedCount);
+			
+			if(_scriptFinishedCount >= scriptLength)
+			{
+				_thread = new Thread(_autoConnect.checkNetworkStatusRunnable);
+				_thread.start();
+			}
+			else
+			{
+				setConnectTimeOut();
+				
+				if(thisFile.equals(thisCheckFile))
+				{
+					_autoConnectWebView.addJQuerySupported(true);
+				}
+			}
 		}
 	}
 	
@@ -190,12 +233,24 @@ public class AutoConnectService extends Service
 	{
 		try
 		{
+			destoryConnectTimeOut();
+			
 			_windowManager.removeView(_linearLayoutView);
 	    	stopService(new Intent( AutoConnectService.this, AutoConnectService.class));
 		}
 		catch (Exception e)
 		{
 			Log.d(DEBUG_TAG, e.getMessage());
+		}
+	}
+	
+	private void destoryConnectTimeOut()
+	{
+		if(_autoConnectTimer != null)
+		{
+			_autoConnectTimer.cancel();
+			_autoConnectTimer.purge();
+			_autoConnectTimer = null;
 		}
 	}
 	
@@ -231,21 +286,7 @@ public class AutoConnectService extends Service
 			_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 			_notification.notifyBox();
 			
-			_autoConnectTimer = new Timer();
-			TimerTask timerTask = new TimerTask() 
-			{
-				@Override
-	            public void run() 
-				{
-					_autoConnectTimer.cancel();
-		            _autoConnectTimer.purge();
-		            
-					Message message = new Message();
-		            message.what = AutoConnect.AUTO_CONNECT_TIMEOUT ;
-		            _handler.sendMessage(message);
-				}
-			};
-			_autoConnectTimer.schedule(timerTask, _autoConnectTimeOut); 
+			setConnectTimeOut();
 		}
 	}
 	
@@ -281,44 +322,63 @@ public class AutoConnectService extends Service
 
 	}
 	
+	private void setConnectTimeOut()
+	{
+		TimerTask timerTaskConnectTimeOut = new TimerTask() 
+		{
+			@Override
+	        public void run() 
+			{
+				destoryConnectTimeOut();
+	            
+				Message message = new Message();
+	            message.what = AutoConnect.AUTO_CONNECT_TIMEOUT ;
+	            _handler.sendMessage(message);
+			}
+		};
+		 
+		_autoConnectTimer = new Timer();
+		_autoConnectTimer.schedule(timerTaskConnectTimeOut, _autoConnectTimeOut); 
+		
+		
+	}
+	
 	private Handler _handler = new Handler()
 	{
 		@Override
 		public void handleMessage(Message msg)
 		{
+			String notifyTitle = "";
+			String notifyTicker = "";
+			String notifyContent = "";
+			Intent contentIntent = new Intent(); 
+			
 			switch(msg.what)
 			{
 				case AutoConnect.CHECK_NETWORK_STATUS:
 					
 					boolean networkStatusResult = (Boolean)msg.obj;
 					
-					_autoConnectTimer.cancel();
-		            _autoConnectTimer.purge();
-					
 					if(networkStatusResult)
 					{
-						String notifyTitle = getResources().getString(R.string.app_name);
-						String notifyTicker = getResources().getString(R.string.notification_ticker_connect_success);	
+						notifyTitle = getResources().getString(R.string.app_name);
+						notifyTicker = getResources().getString(R.string.notification_ticker_connect_success);	
 						notifyTicker = notifyTicker.replace("[ConnectName]", _autoConnect.getName());
 						
-						String notifyContent = getResources().getString(R.string.notification_ticker_connect_success);	
+						notifyContent = getResources().getString(R.string.notification_ticker_connect_success);	
 						notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
-						
-						Intent contentIntent = new Intent(); 
-						
+												
 						_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 						_notification.notifyBox();
 					}
 					else
 					{
-						String notifyTitle = getResources().getString(R.string.app_name);
-						String notifyTicker = getResources().getString(R.string.notification_ticker_connect_failure);	
+						notifyTitle = getResources().getString(R.string.app_name);
+						notifyTicker = getResources().getString(R.string.notification_ticker_connect_failure);	
 						notifyTicker = notifyTicker.replace("[ConnectName]", _autoConnect.getName());
 						
-						String notifyContent = getResources().getString(R.string.notification_ticker_connect_failure);	
+						notifyContent = getResources().getString(R.string.notification_ticker_connect_failure);	
 						notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
-						
-						Intent contentIntent = new Intent(); 
 						
 						_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 						_notification.notifyBox();
@@ -330,19 +390,39 @@ public class AutoConnectService extends Service
 		            
 				case AutoConnect.AUTO_CONNECT_TIMEOUT:
 					
-					String notifyTitle = getResources().getString(R.string.app_name);
-					String notifyTicker = getResources().getString(R.string.notification_ticker_connect_timeout);	
+					notifyTitle = getResources().getString(R.string.app_name);
+					notifyTicker = getResources().getString(R.string.notification_ticker_connect_timeout);	
 					notifyTicker = notifyTicker.replace("[ConnectName]", _autoConnect.getName());
 					
-					String notifyContent = getResources().getString(R.string.notification_ticker_connect_timeout);	
+					notifyContent = getResources().getString(R.string.notification_ticker_connect_timeout);	
 					notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
-					
-					Intent contentIntent = new Intent(); 
 					
 					_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 					_notification.notifyBox();
 					
 					destoryView();
+					
+					break;
+					
+				case AutoConnect.AUTO_CONNECT_ALERT:
+					
+					JSAlertMessage jsAlert = (JSAlertMessage) msg.obj;
+					
+					notifyTitle = getResources().getString(R.string.app_name);
+					
+					notifyTicker = jsAlert.getMessage();	
+					notifyTicker = notifyTicker.replace("[ConnectName]", _autoConnect.getName());
+						
+					notifyContent = jsAlert.getMessage();	
+					notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
+					
+					_notification = new NotificationBox(AutoConnectService.this, contentIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
+					_notification.notifyBox();
+					
+					if(jsAlert.getAction() == JSAlertMessage.ActionType.DIMISS)
+					{
+						destoryView();
+					}
 					
 					break;
 			}
@@ -371,5 +451,6 @@ public class AutoConnectService extends Service
     	
     };
 
+    
 	
 }

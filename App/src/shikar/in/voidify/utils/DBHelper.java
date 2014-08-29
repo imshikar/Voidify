@@ -17,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
 	private final static String DEBUG_TAG = "Voidify_Utils_DBHelper";
 	
-	private final static int _DBVersion = 5;
+	private final static int _DBVersion = 12; //Code:201408250
 	private final static String _DBName = "Voidify.db"; 
 	
 	private Context _context;

@@ -1,6 +1,6 @@
 {
     "Name": "臺南市教育局無線網路",
-    "SSID": ["TN-Guest"],
+    "SSID": ["TN-Guest","TANetRoaming"],
     "Type": 2,
     "Version": 1,
     "UUID": "97c7370c7d1c6bb0102e036407a9c682",

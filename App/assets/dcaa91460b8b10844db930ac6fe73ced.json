@@ -1,0 +1,24 @@
+{
+    "Name": "台南應用科技大學校園網路",
+    "SSID": ["TUTNet"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "dcaa91460b8b10844db930ac6fe73ced",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "Name": "國立虎尾科技大學校園網路",
+    "SSID": ["NFU"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "4b0c7be60a47825f3670a191d4b47c99",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "File",
+    		   "List":[{
+    		   		"File": "login.html",
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Submit']\").trigger('click');"
+    		   }]
+    }
+}

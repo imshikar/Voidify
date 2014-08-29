@@ -26,9 +26,10 @@ public class AutoConnect
 	
 	public final static String CHECK_NETWORK_PAGE = "http://tw.voidify.net/api/";
 	
-	public final static int CHECK_NETWORK_STATUS = 1;
-	public final static int DO_NETWORK_LOGIN = 2;
-	public final static int AUTO_CONNECT_TIMEOUT = 3;
+	public final static int CHECK_NETWORK_STATUS 	= 1;
+	public final static int DO_NETWORK_LOGIN 		= 2;
+	public final static int AUTO_CONNECT_TIMEOUT 	= 3;
+	public final static int AUTO_CONNECT_ALERT 		= 4;
 	
 	private String _name;
 	private String _ssid;
@@ -69,6 +70,23 @@ public class AutoConnect
 		{
 			JSONObject jsonObjectScript = _jsonArrayScriptList.getJSONObject(index);
 			result = jsonObjectScript.getString("JS");
+		}
+		catch (JSONException e)
+		{
+			Log.d(DEBUG_TAG, e.getMessage());
+		}
+		
+		return result;
+	}
+	
+	public String getCheckFile(int index)
+	{
+		String result = "";
+		
+		try
+		{
+			JSONObject jsonObjectScript = _jsonArrayScriptList.getJSONObject(index);
+			result = jsonObjectScript.getString("File");
 		}
 		catch (JSONException e)
 		{

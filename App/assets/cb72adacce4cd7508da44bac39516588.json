@@ -1,0 +1,31 @@
+{
+    "Name": "7-WiFi無線上網(每日免費)",
+    "SSID": ["7WiFi"],
+    "Type": 3,
+    "Version": 1,
+    "UUID": "cb72adacce4cd7508da44bac39516588",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username", "(7-WiFi一般用戶)"],
+    "Script": {
+               "CheckType" : "Page",
+               "List":[{
+                    "Page": "https://www.7wifi.com.tw/phone/index2.aspx",
+                    "JS":"$(\"select[name='userrole'] option[value='02']\").prop(\"selected\", \"selected\");$(\"input[name='wiflyacct']\").val(\"%Username%\");$(\"input[name='wiflypwd']\").val(\"%Password%\");$(\"input[name='imgbtn_login']\").trigger('click');"
+               },{
+                    "Page": "https://www.7wifi.com.tw/phone/Index_login.aspx",
+                    "JS":"var voidify_limit = 28 * 60 * 1000;var voidify_check = false;$(\"select[name='productitem'] option\").each(function(){var voidify_text = $(this).text();var voidify_stamp = voidify_text.split('(');voidify_stamp = voidify_stamp[1].split(')');if(voidify_stamp[0] == \"未使用\") {$(this).prop(\"selected\", \"selected\");voidify_check = true;return false;}else{var voidify_usetime = new Date(voidify_stamp[0]);var voidify_newtime = new Date;var voidify_diff=voidify_newtime-voidify_usetime;if(voidify_diff<voidify_limit){$(this).prop(\"selected\", \"selected\");voidify_check = true;return false;}}});if(voidify_check){$(\"#imgbtn_ok\").attr(\"onclick\",\"\"); $(\"#imgbtn_ok\").trigger(\"click\");}else{alert(\"Voidify_Alert@DIMISS@今日的免費上網時數皆已經使用完畢!\");}"
+               },{
+                    "Page": "http://m.7net.com.tw/m001.faces",
+                    "JS": "location.href='http://tw.voidify.net/api';"
+               }]
+    }
+}

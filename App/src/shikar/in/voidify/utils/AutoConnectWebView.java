@@ -28,9 +28,10 @@ public class AutoConnectWebView extends WebView
 	public final static int MSG_PAGE_TIMEOUT = 1;
 	public final static int MSG_PAGE_FINISHED = 2;
 	public final static int MSG_JQUERY_SUPPORTED = 3;
+	public final static int MSG_JS_ALERT = 4;
 	
 	private Context _context;
-	private long _timeOut = 10000;
+	private long _timeOut = 20000;
 	private Timer _timer;
 	
 	private Handler _webHandler;
@@ -79,7 +80,7 @@ public class AutoConnectWebView extends WebView
 	
 	public void addJQuerySupported(boolean trriger)
 	{
-		this.loadJavaScript("var js_element=document.createElement(\"script\");js_element.setAttribute(\"src\",\"//voidify-app-asset/jquery.min.js\");document.getElementsByTagName(\"head\")[0].appendChild(js_element);");
+		this.loadJavaScript("if(typeof($) == 'undefined'){var js_element=document.createElement(\"script\");js_element.setAttribute(\"src\",\"//voidify-app-asset/jquery.min.js\");document.getElementsByTagName(\"head\")[0].appendChild(js_element);}");
 		
 		if(trriger)
 		{
@@ -105,6 +106,32 @@ public class AutoConnectWebView extends WebView
 			URL baseURL = new URL(realURL.getProtocol(), realURL.getHost(), realURL.getPort(), realURL.getPath());
 		
 			result = baseURL.toString();	
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	
+		return result;
+	}
+	
+	private String getBasePageName(String url)
+	{
+		String result = url;
+		
+		try {
+			URL realURL = new URL(url);	
+			String[] splitPath = realURL.getPath().split("/");
+			
+			if(splitPath.length > 0)
+			{
+				result = splitPath[splitPath.length - 1];
+			}
+			else
+			{
+				result = "index.page";
+			}
 		}
 		catch (MalformedURLException e)
 		{
@@ -142,7 +169,22 @@ public class AutoConnectWebView extends WebView
 		@Override
 		public boolean onJsAlert(WebView view, String url, String message, JsResult result) 
 		{
-			//Toast.makeText(view.getContext(),message, Toast.LENGTH_SHORT).show();
+			String[] msgSplit = message.split("@");
+			String showFlag = msgSplit[0];
+			
+			if(showFlag.equals("Voidify_Alert"))
+			{
+				String showAction = msgSplit[1];
+				String showMessage = msgSplit[2];
+				
+				JSAlertMessage jsAlert = new JSAlertMessage(showAction, showMessage);
+				
+				Message messageHandler = new Message();
+				messageHandler.what = MSG_JS_ALERT;
+				messageHandler.obj = jsAlert;
+		        _webHandler.sendMessage(messageHandler);
+			}
+			
 			result.confirm();
 		    return true;
 		}
@@ -204,9 +246,13 @@ public class AutoConnectWebView extends WebView
 				@Override
 			    public void run() 
 				{
+					String[] msgObj = new String[2];
+					msgObj[0] = getBasePageURL(_thisPageURL);
+					msgObj[1] = getBasePageName(_thisPageURL);
+					
 			        Message message = new Message();
 					message.what = MSG_PAGE_FINISHED;
-					message.obj = getBasePageURL(_thisPageURL);
+					message.obj = msgObj;
 					_webHandler.sendMessage(message);
 			    }
 

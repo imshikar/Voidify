@@ -539,16 +539,29 @@ public class ConnectConfigActivity extends Activity
 				String inputLabel = jsonObjectInput.getString("ID");
 				String inputType = jsonObjectInput.getString("Type");
 				
-				
+				String inputValue = "";
 				
 				if(inputType.equals("Spinner"))
 				{
-					inputLabel += "_Value";
+					String inputLabelNew = inputLabel + "_Title";
+					inputValue = jsonObjectForm.getString(inputLabelNew);
+					result = result.replaceAll("%"+inputLabelNew+"%", inputValue);
+					
+					inputLabelNew = inputLabel + "_Value";
+					inputValue = jsonObjectForm.getString(inputLabelNew);
+					result = result.replaceAll("%"+inputLabelNew+"%", inputValue);
+					
+					inputLabelNew = inputLabel + "_Index";
+					inputValue = jsonObjectForm.getString(inputLabelNew);
+					result = result.replaceAll("%"+inputLabelNew+"%", inputValue);
+				}
+				else
+				{
+					inputValue = jsonObjectForm.getString(inputLabel);
+					result = result.replaceAll("%"+inputLabel+"%", inputValue);
 				}
 				
-				String inputValue = jsonObjectForm.getString(inputLabel);
 				
-				result = result.replaceAll("%"+inputLabel+"%", inputValue);
 			}
 		}
 		catch (JSONException e)

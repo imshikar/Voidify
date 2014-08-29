@@ -1,14 +1,14 @@
 {
-    "Name": "高雄市教育局無線網路",
-    "SSID": ["KH-guest"],
-    "Type": 2,
+    "Name": "國立台灣體育運動大學校園網路",
+    "SSID": ["NTUPES", "ntupes"],
+    "Type": 1,
     "Version": 1,
-    "UUID": "71617c62e2ea09ede172f2186d0b136e",
+    "UUID": "9898c90f210346abd4e974ecd2d83c7a",
     "Author": "Voidify",
     "Form": [{
         "ID": "Username",
         "Type": "Text",
-        "Title": "帳號(完整Email)"
+        "Title": "帳號"
     }, {
         "ID": "Password",
         "Type": "Password",
@@ -16,9 +16,8 @@
     }],
     "Account" : ["Username"],
     "Script": {
-    		   "CheckType" : "Page",
+    		   "CheckType" : "Index",
     		   "List":[{
-    		   		"Page": "https://securelogin.arubanetworks.com/upload/custom/captive-portal/index.htm",
     		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Login']\").trigger('click');"
     		   }]
     }

@@ -1,14 +1,14 @@
 {
-    "Name": "高雄市教育局無線網路",
-    "SSID": ["KH-guest"],
-    "Type": 2,
+    "Name": "龍華科技大學校園網路",
+    "SSID": ["LHU_NEW"],
+    "Type": 1,
     "Version": 1,
-    "UUID": "71617c62e2ea09ede172f2186d0b136e",
-    "Author": "Voidify",
+    "UUID": "b91f9b101ef5685817193b1bee6932bd",
+    "Author": "威威",
     "Form": [{
         "ID": "Username",
         "Type": "Text",
-        "Title": "帳號(完整Email)"
+        "Title": "帳號"
     }, {
         "ID": "Password",
         "Type": "Password",
@@ -18,7 +18,7 @@
     "Script": {
     		   "CheckType" : "Page",
     		   "List":[{
-    		   		"Page": "https://securelogin.arubanetworks.com/upload/custom/captive-portal/index.htm",
+    		   		"Page": "https://securelogin.arubanetworks.com/cgi-bin/login",
     		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Login']\").trigger('click');"
     		   }]
     }

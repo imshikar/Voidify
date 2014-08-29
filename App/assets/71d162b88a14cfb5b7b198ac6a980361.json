@@ -1,0 +1,24 @@
+{
+    "Name": "國立臺中科技大學校園網路",
+    "SSID": ["NUTCroaming"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "71d162b88a14cfb5b7b198ac6a980361",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

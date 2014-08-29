@@ -91,17 +91,8 @@ public class WifiBroadcastReceiver extends BroadcastReceiver
 			notifyTicker = notifyTicker.replace("[ConnectName]", _autoConnect.getName());
 			notifyContent = notifyContent.replace("[ConnectName]", _autoConnect.getName());
 
-			_notification = new NotificationBox(_context, broadcastIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_ALL);
+			_notification = new NotificationBox(_context, broadcastIntent, notifyTitle, notifyContent, notifyTicker, Notification.DEFAULT_LIGHTS);
 			_notification.notifyBox();
-			
-			/*
-			if(_autoConnect.getConnectType() == ConnectType.TIPS)
-			{
-				DialogAlert dialog = new DialogAlert(_context, "test", "test", ButtonType.OK);
-				dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-				dialog.show();
-			}
-			*/
 			
 		}
 	}
@@ -133,6 +124,7 @@ public class WifiBroadcastReceiver extends BroadcastReceiver
 					WifiInfo info = wifiManager.getConnectionInfo();
 					
 					String connectedSSID = info.getSSID().replace("\"", "");
+					connectedSSID = connectedSSID.replace("'", "\'");
 					
 					_autoConnect = new AutoConnect(context, connectedSSID, _handler);
 					

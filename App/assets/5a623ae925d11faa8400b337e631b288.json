@@ -1,0 +1,25 @@
+{
+    "Name": "國立陽明大學校園網路",
+    "SSID": ["ymu"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "5a623ae925d11faa8400b337e631b288",
+    "Author": "小k",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://securelogin.arubanetworks.com/upload/custom/Portal_ymu-LI/login.htm",
+    		   		"JS":"$(\"input[name='user']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"button[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

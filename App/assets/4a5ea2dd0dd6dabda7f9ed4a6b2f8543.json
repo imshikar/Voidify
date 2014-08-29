@@ -1,0 +1,25 @@
+{
+    "Name": "長榮大學校園網路",
+    "SSID": ["CJCU"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "4a5ea2dd0dd6dabda7f9ed4a6b2f8543",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://192.192.199.123/login.php",
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='userpwd']\").val(\"%Password%\");$(\"input[name='login']\").trigger('click');"
+    		   }]
+    }
+}

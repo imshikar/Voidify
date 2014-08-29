@@ -247,6 +247,7 @@ public class MainActivity extends Activity {
 				WifiInfo info = wifiManager.getConnectionInfo ();
 					
 				String connectedSSID = info.getSSID().replace("\"", "");
+				connectedSSID = connectedSSID.replace("'", "\'");
 					
 				return connectedSSID;
 				

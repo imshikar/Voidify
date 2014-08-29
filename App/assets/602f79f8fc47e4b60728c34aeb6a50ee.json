@@ -1,0 +1,25 @@
+{
+    "Name": "國立臺灣科技大學校園網路",
+    "SSID": ["NTUST-UAM"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "602f79f8fc47e4b60728c34aeb6a50ee",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://wlan-web.ntust.edu.tw/ntustweb/Mobile/MLogon.aspx",
+    		   		"JS":"$(\"input[name='TextBoxUserName']\").val(\"%Username%\");$(\"input[name='TextBoxPassword']\").val(\"%Password%\");$(\"input[name='ImageButtonLogin']\").trigger('click');"
+    		   }]
+    }
+}

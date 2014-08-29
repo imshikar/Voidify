@@ -1,0 +1,25 @@
+{
+    "Name": "高雄醫學大學校園網路",
+    "SSID": ["iKMU", "iKMUDorm"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "7169ac34a2867ab917a83760ca07bc21",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "https://wlnat.kmu.edu.tw:8001/index.php",
+    		   		"JS":"$(\"input[name='auth_user']\").val(\"%Username%\");$(\"input[name='auth_pass']\").val(\"%Password%\");$(\"input[name='accept']\").trigger('click');"
+    		   }]
+    }
+}

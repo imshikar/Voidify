@@ -1,0 +1,25 @@
+{
+    "Name": "國立臺灣藝術大學校園網路",
+    "SSID": ["NTUA-Wireless"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "5db9818a04c20049181b2992b727e015",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Page",
+    		   "List":[{
+    		   		"Page": "http://140.131.21.45/ruckus/index.jsp",
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[type='submit']\").trigger('click');"
+    		   }]
+    }
+}

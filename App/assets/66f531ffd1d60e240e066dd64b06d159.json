@@ -1,0 +1,24 @@
+{
+    "Name": "國立中正大學校園網路",
+    "SSID": ["ccu"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "66f531ffd1d60e240e066dd64b06d159",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Submit']\").trigger('click');"
+    		   }]
+    }
+}

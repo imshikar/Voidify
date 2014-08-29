@@ -1,0 +1,24 @@
+{
+    "Name": "高苑科技大學校園網路",
+    "SSID": ["KYU-Wireless"],
+    "Type": 1,
+    "Version": 1,
+    "UUID": "5727226a0f41b2e7135b15083fc8ba6f",
+    "Author": "Voidify",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+    		   "CheckType" : "Index",
+    		   "List":[{
+    		   		"JS":"$(\"input[name='username']\").val(\"%Username%\");$(\"input[name='password']\").val(\"%Password%\");$(\"input[name='Login']\").trigger('click');"
+    		   }]
+    }
+}
