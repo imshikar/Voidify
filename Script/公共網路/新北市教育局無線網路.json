@@ -1,0 +1,25 @@
+{
+    "Name": "新北市教育局無線網路",
+    "SSID": ["NTPC"],
+    "Type": 2,
+    "Version": 1,
+    "UUID": "8400caeeca138604f8f55cfad424db5b",
+    "Author": "威威",
+    "Form": [{
+        "ID": "Username",
+        "Type": "Text",
+        "Title": "帳號"
+    }, {
+        "ID": "Password",
+        "Type": "Password",
+        "Title": "密碼"
+    }],
+    "Account" : ["Username"],
+    "Script": {
+               "CheckType" : "File",
+               "List":[{
+                    "File": "login.shtml",
+                    "JS":"$(\"input[name='myusername']\").val(\"%Username%\");$(\"input[name='mypassword']\").val(\"%Password%\");if(Before_Submit(Enter)){Enter.submit();}"
+               }]
+    }
+}
